@@ -3,10 +3,10 @@ The following tools are required for running VarSelect, please read carefully an
 
 ## Gemini
 
-Gemini is a framework for human genetic variations analysis by the SQLite database engine, and can be downloaded and installed by following the instruction at (https://gemini.readthedocs.io/en/latest/content/installation.html) . Once installed, please follow the commands at https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations to download the data file of the additional annotations, such as the GERP and CADD scores.
+Gemini is a framework for human genetic variations analysis by the SQLite database engine, and can be downloaded and installed by following the instruction at [https://gemini.readthedocs.io/en/latest/content/installation.html] . Once installed, please follow the commands at [https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations] to download the data file of the additional annotations, such as the GERP and CADD scores.
  
 ## VEP
-VEP is part of the Ensembl project and is a comprehensive variants annotation tool. To install VEP, please follow the instruction at http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html. Please note that the pre-computed cache files are required to speeding up the annotation process. Please follow the instruction step by step at http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html to download the VEP of GRCh37 version.
+VEP is part of the Ensembl project and is a comprehensive variants annotation tool. To install VEP, please follow the instruction at [http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html]. Please note that the pre-computed cache files are required to speeding up the annotation process. Please follow the instruction step by step at [http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html] to download the VEP of GRCh37 version.
 
 ## VEP plugins
 VEP supports plugin modules to incorporate annotations from the external datasets. VarSelect requires the dbNSFP plugin, which are available at https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm, respectively. 
