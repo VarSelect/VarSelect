@@ -12,25 +12,25 @@ VEP is part of the Ensembl project and is a comprehensive variants annotation to
 VEP supports plugin modules to incorporate annotations from the external datasets. VarSelect requires the dbNSFP plugin, which are available at <https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm>, respectively. 
 
 ## dbNSFP
-dbNSFP annotates the non-synonymous single nucleotide variations (nsSNVs). The data file of dbNSFP is available at https://sites.google.com/site/jpopgen/dbNSFP .
+dbNSFP annotates the non-synonymous single nucleotide variations (nsSNVs). The data file of dbNSFP is available at <https://sites.google.com/site/jpopgen/dbNSFP> .
 
 ## ANNOVAR
-ANNOVAR  is a variant annotation tool with high efficiency to a variety of annotation databases, and is available at http://annovar.openbioinformatics.org/en/latest/user-guide/download/. Please note that a license is required. Please follow the instruction at http://annovar.openbioinformatics.org/en/latest/user-guide/startup/ to install scripts into proper directories when all the required packages are downloaded. Databases will be automatically installed by VarSelect installation script.
+ANNOVAR  is a variant annotation tool with high efficiency to a variety of annotation databases, and is available at <http://annovar.openbioinformatics.org/en/latest/user-guide/download/>. Please note that a license is required. Please follow the instruction at <http://annovar.openbioinformatics.org/en/latest/user-guide/startup/> to install scripts into proper directories when all the required packages are downloaded. Databases will be automatically installed by VarSelect installation script.
 
 ## snpEff
-snpEff annotates and predicts the impact of genetic variants, and is available at http://snpeff.sourceforge.net/download.html. After downloading the software, the pre-built snpEff database for human genome of GRCh37 is needed. Please download it with following command:
+snpEff annotates and predicts the impact of genetic variants, and is available at <http://snpeff.sourceforge.net/download.html>. After downloading the software, the pre-built snpEff database for human genome of GRCh37 is needed. Please download it with following command:
 
 ```
 java –jar /path/to/your/snpEff.jar download –v GRCh37.75
 ```
 ## vcftools
-vcftools are a set of tools for manipulating genetic variants in the VCF-formatted files, and are available at https://vcftools.github.io/index.html. Please follow the instruction to install vcftools at https://vcftools.github.io/examples.html.
+vcftools are a set of tools for manipulating genetic variants in the VCF-formatted files, and are available at <https://vcftools.github.io/index.html>. Please follow the instruction to install vcftools at <https://vcftools.github.io/examples.html>.
 
 ## bcftools, bgzip, tabix
-bcftools, bgzip and tabix are tools to compress, index and manipulate VCF files. bcftools are available at http://www.htslib.org/download/, and include the bgzip and the tabix tools in the release.
+bcftools, bgzip and tabix are tools to compress, index and manipulate VCF files. bcftools are available at <http://www.htslib.org/download/>, and include the bgzip and the tabix tools in the release.
 
 # Download VarSelect
-The latest version of VarSelect package can be downloaded from https://github.com/VarSelect/VarSelect
+The latest version of VarSelect package can be downloaded from <https://github.com/VarSelect/VarSelect>
 
 # Install VarSelect
 Please make sure that you have already downloaded all the required packages and resources for running VarSelect. When you are all set, please run the following command to decompress the VarSelect file.
@@ -76,7 +76,7 @@ sample1,/path/to/vcf/file2
 sample2,/path/to/vcf/file3 
 ```
 
-The gender and phenotype information is also required, and is specify by -p option followed by a PED file containing the pedigree information. An example of the PED file is available at http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped
+The gender and phenotype information is also required, and is specify by -p option followed by a PED file containing the pedigree information. An example of the PED file is available at <http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped>
 
 Once annotated, VarSelect creates a SQLite database file by using the GEMINI framework. The database can be queried and filtered by using the GEMINI commands to extract the annotation information.
 
@@ -256,7 +256,7 @@ All required files are stored in directory "varselect/examples/example1/" :
 * example1.txt : A comma separated file that describe the relationship between sample and corresponding VCF file.  
 * example1.ped : A tab separated file that describes the pedigree information of this family, including the gender and the disease status. In this example, we assume NA12878 is a sick child while NA12891 and NA12892 are unaffected parents. 
 
-For detail of ped format, please check the page (http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped) 
+For detail of ped format, please check the page (<http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped>) 
 
 To start the analysis, please type in following command:
 
@@ -297,7 +297,7 @@ gemini query --header
 ```
 
 ## Examples 2 - paired case/control samples
-In this case, we use the variants of chromosome 22 of three samples, including blood , primary tumor ccRCC (clear cell Renal Cell Carcinoma), and a metastasis lung cancer available at https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP063388.
+In this case, we use the variants of chromosome 22 of three samples, including blood , primary tumor ccRCC (clear cell Renal Cell Carcinoma), and a metastasis lung cancer available at <https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP063388>.
 All files are stored in subdirectory examples/example2/
 
 * blood-gatk-chr22.vcf.gz 
