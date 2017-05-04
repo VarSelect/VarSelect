@@ -481,7 +481,7 @@ In the two-hit model, the sick child inherits one pathogenic allele from one of 
 For detecting X-linked recessive (XLR) inheritance, the variants on the non-PAR region in the male and female patients are hemizygous and homozygous, respectively. The variants on the PAR shall be homozygous for both the male and female patients. Typically, the sick boy shall inherit the pathogenic allele on the non-PAR region from his healthy or sick mother who carries heterozygous or homozygous variants, respectively. When the father is healthy, the girl received healthy hemizygous sequences on the non-PAR region from her father. Her disease is likely not related to the variants on non-PAR region, and the non-PAR region is therefore skipped unless the father is also sick. Depending on which parent is sick, either one or two pathogenic alleles shall be seen on the non-PAR region of the father or mother, respectively, while are always two pathogenic alleles on the PAR region. 
  
 **** ****
-****Paired case/control analysis****
+**Paired case/control analysis**
  
 In the case/control workflow, the variants of the matched samples are classified as either ‘loss of heterozygosity (LOH)’ or ‘*de novo* mutations’. All the different variants in the vcf files of both the case and control, regardless single and multi-nucleotide substitutions, or small INDEL, are compared for LOH otherwise classified as *de novo* mutations. VarSelect supports the comparison between one or more cases versus one control sample.
  
@@ -489,6 +489,6 @@ In the case/control workflow, the variants of the matched samples are classified
  
 Variants that are heterozygous in the control sample lose it heterozygosity is so called LOH. When multiple cases are analyzed, each case is individually compared against the same control sample and annotated on the “is_LOH” tag. 
  
-** *De novo* mutation**
+***De novo*** **mutation**
 *De novo* mutation can occur on the alleles of heterozygosity and homozygosity, as long as the alternative nucleotide in the case isn’t present in the control sample. When multiple cases are analyzed, each case is individually compared against the same control sample and annotated on the “is_denovo” tag.
 
