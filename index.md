@@ -489,6 +489,6 @@ In the case/control workflow, the variants of the matched samples are classified
  
 Variants that are heterozygous in the control sample lose it heterozygosity is so called LOH. When multiple cases are analyzed, each case is individually compared against the same control sample and annotated on the “is_LOH” tag. 
  
-******De novo********** mutation****
-**De novo** mutation can occur on the alleles of heterozygosity and homozygosity, as long as the alternative nucleotide in the case isn’t present in the control sample. When multiple cases are analyzed, each case is individually compared against the same control sample and annotated on the “is_denovo” tag.
+**** ** *De novo* ** ******** mutation****
+*De novo* mutation can occur on the alleles of heterozygosity and homozygosity, as long as the alternative nucleotide in the case isn’t present in the control sample. When multiple cases are analyzed, each case is individually compared against the same control sample and annotated on the “is_denovo” tag.
 
