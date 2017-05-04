@@ -485,10 +485,10 @@ For detecting X-linked recessive (XLR) inheritance, the variants on the non-PAR 
  
 In the case/control workflow, the variants of the matched samples are classified as either ‘loss of heterozygosity (LOH)’ or ‘*de novo* mutations’. All the different variants in the vcf files of both the case and control, regardless single and multi-nucleotide substitutions, or small INDEL, are compared for LOH otherwise classified as *de novo* mutations. VarSelect supports the comparison between one or more cases versus one control sample.
  
-****Loss of heterozygosity (LOH) events****
+**Loss of heterozygosity (LOH) events**
  
 Variants that are heterozygous in the control sample lose it heterozygosity is so called LOH. When multiple cases are analyzed, each case is individually compared against the same control sample and annotated on the “is_LOH” tag. 
  
-**** ** *De novo* ** ******** mutation****
+** *De novo* mutation**
 *De novo* mutation can occur on the alleles of heterozygosity and homozygosity, as long as the alternative nucleotide in the case isn’t present in the control sample. When multiple cases are analyzed, each case is individually compared against the same control sample and annotated on the “is_denovo” tag.
 
