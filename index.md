@@ -443,7 +443,7 @@ To analyze the intersection of variants identified by both variant callers, repl
 varselect.pl analysis -d example4_varselect.db 
                       -p example4.ped 
                       -m family 
-                      -k -i **
+                      -k -i 
 ```
 
 Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. Inconsistent calls by different callers are removed for the downstream analysis and listed in file “multicaller_intersect_inconsistant_20170111190712.txt” in the same directory of analysis output.
