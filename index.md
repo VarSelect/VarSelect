@@ -62,13 +62,13 @@ Please make sure that you have downloaded all the required packages and resource
 After extracting the package, run the VarSelect installation script
 
 ```
- /path/to/your/VarSelect/install_VarSelect.pl*
+ /path/to/your/VarSelect/install_VarSelect.pl
 ```
 
 Add the VarSelect path to your system's $PATH settings
 
 ```
-**export PATH=/path/to/your/VarSelect/dir:$PATH**
+export PATH=/path/to/your/VarSelect/dir:$PATH
 ```
 
 ## **Quick Start**
@@ -76,15 +76,15 @@ Add the VarSelect path to your system's $PATH settings
 VarSelect script is executable only on command line. Please use -h flag for the basic usage information. 
 
 ```
-**varselect.pl -h**
+varselect.pl -h
 ```
 
 VarSelect annotates and analyzes sequence variants, and compares the results from different primary analyses. To start using VarSelect, please use "annotate" to process your vcf file(s) of interests.
 
 ```
-**varselect.pl annotate* *-v /path/to/vcf_files_list
-* **                  **   *-p /path/to/ped/file 
-* **             **        *-m workflow_mode**
+varselect.pl annotate -v /path/to/vcf_files_list
+                      -p /path/to/ped/file 
+                      -m workflow_mode
 ```
 
 The annotation function combines the variants from different samples and annotates all reported variants of 406 features. The -v option specifies the file describing the links between samples and corresponding variant files. The link is specified by a comma separator, one file per line as the following format:
