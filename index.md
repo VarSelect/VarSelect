@@ -440,10 +440,10 @@ The following command lists the variants in this analysis.
 To analyze the intersection of variants identified by both variant callers, replace the option ‘-u’ to ‘-i’ in the original command as following.
 
 ```
-**varselect.pl analysis ****-d example4_varselect.db 
-                      ****-p example4.ped 
-                      ****-m family 
-                      ****-k -i **
+varselect.pl analysis -d example4_varselect.db 
+                      -p example4.ped 
+                      -m family 
+                      -k -i **
 ```
 
 Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. Inconsistent calls by different callers are removed for the downstream analysis and listed in file “multicaller_intersect_inconsistant_20170111190712.txt” in the same directory of analysis output.
@@ -460,7 +460,7 @@ Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. I
 
 The family analysis workflow includes three steps: 1) analyzing the core family members including father, mother and sick child either male or female, the parents could be both healthy or either one is sick; 2) excluding the variants appeared in the other healthy members in the pedigree; 3) keeping the variants appeared in the other sick members in the pedigree. The inheritance models include: autosomal recessive (AR), compound heterozygosity (CH), *de novo* recessive (DNR), two-hits recessive (THR), and X chromosome-linked recessive (XLR). In humans, the pseudoautosomal region (PAR) on the X chromosome is diploid in male while the rest of the nucleotide sequence is haploid. Variants found on the X chromosome that fall in the CH, DNR, and THR models are reported on each of the category, and excluded from the result of the XLR model. 
  
-**Autosomal recessive inheritance **
+**Autosomal recessive inheritance**
  
 In the AR model, both pathogenic alleles came from each of the parents while the genotype of both parents are heterogeneous and includes exactly one pathogenic allele. When one of the parents is also sick, the sick parent shall carry homozygous variants, while the other parent shall be heterozygous and carries only one pathogenic variant. 
  
@@ -468,7 +468,7 @@ In the AR model, both pathogenic alleles came from each of the parents while the
  
 For discovering the pathogenic alleles of compound heterozygosity (CH), two candidate alleles shall locate in the same gene but on different positions yet chromosomes from each of the patients. The genotypes of the CH variants in both parents have to be heterozygous and includes exactly one pathogenic allele. If one of the parents is sick, the candidate gene shall be also compound heterozygous as the sick child. For the genes on the X chromosome, only the PAR region is scanned on the sick boys. Because of the healthy father, only the PAR region is scanned for the sick girls. 
  
-***De novo*** **recessive mutation **
+***De novo*** **recessive mutation**
  
 In the *de novo* recessive (DNS) model, the variants of the sick child shall be homozygous and have to be different to that of the parents. For that on the X chromosome, the variants on the non-PAR region in the male and female patients shall be hemizygous and homozygous, respectively, while the variants on the PAR shall be homozygous for both the male and the female patients. When one of the parents is sick, the homozygous variant in the sick child shall be different to that in the sick parent. 
  
