@@ -456,32 +456,31 @@ Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. I
 
 
 
-## ****Family analysi********s****
+## **Family analysis**
 
 The family analysis workflow includes three steps: 1) analyzing the core family members including father, mother and sick child either male or female, the parents could be both healthy or either one is sick; 2) excluding the variants appeared in the other healthy members in the pedigree; 3) keeping the variants appeared in the other sick members in the pedigree. The inheritance models include: autosomal recessive (AR), compound heterozygosity (CH), *de novo* recessive (DNR), two-hits recessive (THR), and X chromosome-linked recessive (XLR). In humans, the pseudoautosomal region (PAR) on the X chromosome is diploid in male while the rest of the nucleotide sequence is haploid. Variants found on the X chromosome that fall in the CH, DNR, and THR models are reported on each of the category, and excluded from the result of the XLR model. 
  
-****Autosomal recessive inheritance ****
+**Autosomal recessive inheritance **
  
 In the AR model, both pathogenic alleles came from each of the parents while the genotype of both parents are heterogeneous and includes exactly one pathogenic allele. When one of the parents is also sick, the sick parent shall carry homozygous variants, while the other parent shall be heterozygous and carries only one pathogenic variant. 
  
-****Compound heterozygosity inheritance****
+**Compound heterozygosity inheritance**
  
 For discovering the pathogenic alleles of compound heterozygosity (CH), two candidate alleles shall locate in the same gene but on different positions yet chromosomes from each of the patients. The genotypes of the CH variants in both parents have to be heterozygous and includes exactly one pathogenic allele. If one of the parents is sick, the candidate gene shall be also compound heterozygous as the sick child. For the genes on the X chromosome, only the PAR region is scanned on the sick boys. Because of the healthy father, only the PAR region is scanned for the sick girls. 
  
-******De novo********** recessive mutation ****
+***De novo*** **recessive mutation **
  
 In the *de novo* recessive (DNS) model, the variants of the sick child shall be homozygous and have to be different to that of the parents. For that on the X chromosome, the variants on the non-PAR region in the male and female patients shall be hemizygous and homozygous, respectively, while the variants on the PAR shall be homozygous for both the male and the female patients. When one of the parents is sick, the homozygous variant in the sick child shall be different to that in the sick parent. 
  
-****Two-hit recessive mutation****
+**Two-hit recessive mutation**
  
 In the two-hit model, the sick child inherits one pathogenic allele from one of the parents while the other allele is somatically acquired. When healthy, one of the parents has to be a heterozygous carrier. For the variants on the X chromosome, the entire chromosome is scanned for sick girls, and is only the PAR region for sick boys. When one of the parents is sick, he/she shall carry homozygous alleles of pathogenicity, while the other is either homozygous wild-type or not carrying the pathogenic allele. 
  
-****X-linked recessive inheritance****
+**X-linked recessive inheritance**
  
 For detecting X-linked recessive (XLR) inheritance, the variants on the non-PAR region in the male and female patients are hemizygous and homozygous, respectively. The variants on the PAR shall be homozygous for both the male and female patients. Typically, the sick boy shall inherit the pathogenic allele on the non-PAR region from his healthy or sick mother who carries heterozygous or homozygous variants, respectively. When the father is healthy, the girl received healthy hemizygous sequences on the non-PAR region from her father. Her disease is likely not related to the variants on non-PAR region, and the non-PAR region is therefore skipped unless the father is also sick. Depending on which parent is sick, either one or two pathogenic alleles shall be seen on the non-PAR region of the father or mother, respectively, while are always two pathogenic alleles on the PAR region. 
  
-**** ****
-**Paired case/control analysis**
+## **Paired case/control analysis**
  
 In the case/control workflow, the variants of the matched samples are classified as either ‘loss of heterozygosity (LOH)’ or ‘*de novo* mutations’. All the different variants in the vcf files of both the case and control, regardless single and multi-nucleotide substitutions, or small INDEL, are compared for LOH otherwise classified as *de novo* mutations. VarSelect supports the comparison between one or more cases versus one control sample.
  
