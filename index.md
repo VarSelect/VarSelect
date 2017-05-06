@@ -90,9 +90,9 @@ varselect.pl annotate -v /path/to/vcf_files_list
 The annotation function combines the variants from different samples and annotates all reported variants of 406 features. The -v option specifies the file describing the links between samples and corresponding variant files. The link is specified by a comma separator, one file per line as the following format:
 
 ```
-**sample1,/path/to/vcf/file1
- sample1,/path/to/vcf/file2
- sample2,/path/to/vcf/file3 **
+sample1,/path/to/vcf/file1
+sample1,/path/to/vcf/file2
+sample2,/path/to/vcf/file3
 ```
 
 The gender and phenotype information is also required, and is specified by the -p option followed by a PED file containing the pedigree information. An example of the PED file is available at http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped .
@@ -106,8 +106,8 @@ When the variants are annotated, VarSelect creates a SQLite database file by usi
 VarSelect also annotates copy number variation (CNV) produced by CNVkit[10] to the variants. The option -c specifies the file describing the list of CNV calls as following format:
 
 ```
-**sample1,/path/to/cns/file1
- sample2,/path/to/cns/file2**
+sample1,/path/to/cns/file1
+sample2,/path/to/cns/file2
 ```
 
 VarSelect annotates CNV to the database with tags ‘cnv_samples’ and ‘cnv_log2’, and computes quantitative change by log base 2 between the paired samples. The results are tagged ‘cnv_fc_samples’ and ‘cnv_foldchange_log2’. 
