@@ -5,25 +5,26 @@
 The following tools are required for running VarSelect, please follow the instruction and install all the following tools for full benefits. Please note that the current version of VarSelect supports only the human genome reference hg19/GRCh37. The support for GRCh38 will be available shortly. 
 
 **Gemini**
+
 Gemini[1] is an analytic framework for human genetic variations by taking advantage of the SQLite database engine. It can be downloaded and installed by following the instruction at [`https://gemini.readthedocs.io/en/latest/content/installation.html`](https://gemini.readthedocs.io/en/latest/content/installation.html). Once installed, please follow the commands to download the data files of the additional annotations, such as the GERP[2] and CADD[3] scores at [`https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations`](https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations).
 
-****VEP****
+**VEP**
  VEP[4] is a comprehensive variants annotation tool, and is part of the Ensembl project. To install VEP, please follow the instruction at [`http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html`](http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html). Please note that the pre-built cache files are required for speeding up the annotation process. Please follow the instruction step by step at [`http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html`](http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html) to download VEP of GRCh37 version. 
 
-****VEP plugins****
+**VEP plugins**
  VEP supports plugin modules to incorporate annotations from the external datasets. VarSelect requires the dbNSFP plugin, which are available at [`https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm`](https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm), respectively. 
 
-****dbNSFP****
+**dbNSFP**
  dbNSFP[5, 6] annotates genome-wide non-synonymous single nucleotide variations (nsSNVs). The data file of dbNSFP is available at [`https://sites.google.com/site/jpopgen/dbNSFP`](https://sites.google.com/site/jpopgen/dbNSFP). 
 
-****ANNOVAR****
+**ANNOVAR**
  ANNOVAR[7] is a variant annotation tool with high efficiency to a variety of annotation databases, and is available at [`http://annovar.openbioinformatics.org/en/latest/user-guide/download/`](http://annovar.openbioinformatics.org/en/latest/user-guide/download/). Please note that a license is required. Please follow the instruction at [`http://annovar.openbioinformatics.org/en/latest/user-guide/startup/`](http://annovar.openbioinformatics.org/en/latest/user-guide/startup/) to install scripts into proper directories when all the required packages are downloaded. Databases will be automatically installed by the VarSelect installation script.
 
-****snpEff****
+**snpEff**
  snpEff[8] annotates and predicts the impact of genetic variants, and is available at [`http://snpeff.sourceforge.net/download.html`](http://snpeff.sourceforge.net/download.html). After downloading, please also download the pre-built snpEff annotation database. Please note that the current version of VarSelect is based on human genome reference hg19/GRCh37. Please download it with following command:
-**java –jar /path/to/your/snpEff.jar download –v GRCh37.75**
+java –jar /path/to/your/snpEff.jar download –v GRCh37.75
  
-****vcftools****
+**vcftools**
 [`vcftools`](https://vcftools.github.io/)[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at [`https://vcftools.github.io/index.html`](https://vcftools.github.io/index.html). Please follow the instruction to install vcftools at [`https://vcftools.github.io/examples.html`](https://vcftools.github.io/examples.html).
 
 **bcftools, bgzip, tabix**
