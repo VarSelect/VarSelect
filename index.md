@@ -67,6 +67,7 @@ After extracting the package, run the VarSelect installation script
 
 Add the VarSelect path to your system's $PATH settings
 
+'
 ```
 export PATH=/path/to/your/VarSelect/dir:$PATH
 ```
@@ -313,29 +314,29 @@ When the analysis is finished, the file “example2_varselect.db” is created a
              ****example2_varselect.db**
 ```
 
-## ****Example 3 – Re-analysis and comparison (secondary analysis)****
+## **Example 3 – Re-analysis and comparison (secondary analysis)**
 
 Multiple primary analysis (re-analysis) can be performed for various study purposes. Comparison between any two primary analyses provides the flexibility of hierarchical comparison, namely secondary analysis. User can repeat analysis by marking labels written in the ped file. For example, in the case of ccRCC, you can filter the common *de novo* mutations presented in both ccRCC and the metastatic lung samples by performing “blood vs. ccRCC” and “blood vs. meta-lung’ analyses. The third sample in the ped file marked with '#' will be excluded in this analysis.Firstly, replicate the ped file in the sample 2 as follows.
 
 ```
-**cp example2.ped example3_mark1.ped**
+cp example2.ped example3_mark1.ped
 ```
 
 
  Edit the example3_mark1.ped file and exclude meta-lung sample by marking the ‘#” sign.
 
 ```
-**example3*        *blood*              *0*             *0*             *1*             *1
- example3*        *ccRCC*              *0*             *0*             *1*             *2
- #example3 *    *meta-lung*             *0*             *0*             *1*             *2**
+example3        blood         0         0         1         1
+example3        ccRCC         0         0         1         2
+#example3     meta-lung       0         0         1         2
 ```
 
 Perform primary analysis (re-analysis) by using this new ped file. User can use “varselect.pl analysis” to perform analysis and update the existing database file as the following command.
 
 ```
-**varselect.pl analysis -d example2_varselect.db 
-                      ****-p example3_mark1.ped 
-                      ****-m paired**
+varselect.pl analysis -d example2_varselect.db 
+                      -p example3_mark1.ped 
+                      -m paired
 ```
 
 A new Job Id is generated at the time of beginning the re-analysis (ex: 20170109183415), and a new directory “VarSelectAnalysisResult_20170109183415” is created to store the log files and intermediate result files of this new analysis job. When the re-analysis is finished, new columns tagged with new Job Id are added into the varselect_variants table. 
@@ -343,68 +344,68 @@ A new Job Id is generated at the time of beginning the re-analysis (ex: 20170109
 User can use following command to filter out the *de novo* somatic mutations in the ccRCC.
 
 ```
-**gemini query --header ****-q 'select chrom,start,ref,alt,gts from variants 
-                          ****where is_denovo_20170109183415 = 1'
-             ****example2_varselect.db**
+gemini query --header -q 'select chrom,start,ref,alt,gts from variants 
+                          where is_denovo_20170109183415 = 1'
+             example2_varselect.db
 ```
 
  
 Replicate the example3_mark1.ped file and save as the example3_mark2.ped. Mark the sample meta-lung with the ‘#’ sign. 
 
 ```
-**example3 *       *blood *          *0*             *0*             *1*             *1
- #example3*  **      *ccRCC *          *0*             *0*             *1*             *2
- example3 *      *meta-lun *        *0*             *0*             *1*             *2**
+example3        blood       0       0       1       1
+#example3       ccRCC       0       0       1       2
+example3       meta-lun     0       0       1       2
 ```
 
  
 Perform primary analysis again with the new edited ped file to identify the *de novo* variants present in the metastatic lung tumor.
 
 ```
-*** *varselect.pl analysis -d example2_varselect.db
-                       **-p example3_mark2.ped
-                       **-m paired******
+varselect.pl analysis -d example2_varselect.db
+                      -p example3_mark2.ped
+                      -m paired
 ```
 
 A new directory “./VarSelectAnalysisResult_20170110174312” is created with the corresponding tags updated in the database.
 You can extract the *de novo* mutation presented in the metastasis tumor by the following command.
 
 ```
-*** *gemini query --header ****-q 'select chrom,start,ref,alt,gts from variants 
-                           where ****is_denovo_20170110174312 = 1'
-              ****example2_varselect.db**
+gemini query --header -q 'select chrom,start,ref,alt,gts from variants 
+                          where is_denovo_20170110174312 = 1'
+             example2_varselect.db
 ```
 
  
 To identify the de novo mutations that present in both ccRCC and lung meta samples, we can compare the results from the two (primary) analysis (jobs) by intersecting the results. Please note that only analyses stored in the same database (db) file can be compared (namely secondary analysis). In this example, common *de novo *mutations can be selected by typing in the following command.
 
 ```
-**varselect.pl compare -a 20170109183415
-                     ****-b 20170110174312
-                     ****-c 2 *****              
-     *                -d example2.db**
+varselect.pl compare -a 20170109183415
+                     -b 20170110174312
+                     -c 2               
+                     -d example2.db
 ```
 
  
 A new Job Id is assigned (say, 20170111082651) and the database (db) will be updated with the results of the secondary analysis. The following command lists the results stored in the database (db). 
 
 ```
-**gemini query --header ****-q 'select chrom, start, ref, alt, gts from variants***** 
-*                          where in_analysis_20170111082651 = 1'***** 
-             *example2_varselect.db**
+gemini query --header -q 'select chrom, start, ref, alt, gts from variants
+                          where in_analysis_20170111082651 = 1'
+             example2_varselect.db
 ```
 
  
 If you want to select the novel mutations present only in the metastasis tumor, change the option –c to ‘4’ (unique to the analysis in the ‘-b’ option). 
 
 ```
-**varselect.pl compare -a 20170109183415 ***** 
-*                     -b 20170110174315*****  **  
-                     *-c 4
-                     ****-d example2_varselect.db**
+varselect.pl compare -a 20170109183415
+                     -b 20170110174315
+                     -c 4
+                     -d example2_varselect.db
 ```
 
-## ****Example 4 – comparison of multiple variants callers****
+## **Example 4 – comparison of multiple variants callers**
 
 Union and/or intersection of variant calls from different variants callers could be of interests. This example demonstrates manipulation of results of two popular variant callers: ‘GATK-HaplotypeCaller’ and ‘freebayes’.
  
@@ -419,12 +420,12 @@ All files are stored in directory examples/example4/:
     * example4.txt: A comma separated file that describes the links between the samples and the corresponding VCF files. For multi-caller function, an extra column is required to describing the corresponding variant caller.
 
 ```
-**NA12878,NA12878-gatk-chr22.vcf.gz,gatk-haplotype,
+ NA12878,NA12878-gatk-chr22.vcf.gz,gatk-haplotype
  NA12891,NA12891-gatk-chr22.vcf.gz,gatk-haplotype
  NA12892,NA12892-gatk-chr22.vcf.gz,gatk-haplotype
  NA12878,NA12878-freebayes-chr22.vcf.gz,freebayes
  NA12891,NA12891-freebayes-chr22.vcf.gz,freebayes
- NA12892,NA12892-freebayes-chr22.vcf.gz,freebayes**
+ NA12892,NA12892-freebayes-chr22.vcf.gz,freebayes
 ```
 
     * example4.ped: A tab separated file that describes the relationship between each sample, gender and disease status.
@@ -433,10 +434,10 @@ All files are stored in directory examples/example4/:
 The ‘-k’ option triggers the multi-caller function, followed by ‘-u’ option for preparing the union of all variants from the two variant callers. 
 
 ```
-*** *varselect.pl annotate ****-v example4.txt 
-                       ****-p example4.ped 
-                       ****-m family 
-                       ****-k -u **
+varselect.pl annotate -v example4.txt 
+                      -p example4.ped 
+                      -m family 
+                      -k -u
 ```
 
  
@@ -447,9 +448,9 @@ The full list of the removed variants could be found in the file “multicaller_
 The following command lists the variants in this analysis.
 
 ```
-**gemini query --header ****-q 'select chrom, start, ref, alt, gts from variants
-                         ****where in_analysis_20170111162057 = 1'
-             ****example4_varselect.db**
+gemini query --header -q 'select chrom, start, ref, alt, gts from variants
+                         where in_analysis_20170111162057 = 1'
+             example4_varselect.db
 ```
 
  
