@@ -239,7 +239,7 @@ Bellows are the short description of each VarSelect script.
 
 The following examples are some common scenario.
 
-## ****Example 1 - samples of a family study****
+## **Example 1 - samples of a family study**
 
 In this example, the variants on the chromosome 22 of a family trio, including NA12878, NA12891, NA12892 are used to demonstrate for family-based analysis.
  All required files are stored in the directory “varselect/examples/example1/”. 
@@ -253,9 +253,9 @@ In this example, the variants on the chromosome 22 of a family trio, including N
 To run the analysis, please type in following command:
 
 ```
-**varselect.pl annotate -v example1.txt***** ** ** 
-*                      -p example1.ped***** 
-                      *-m family**
+varselect.pl annotate -v example1.txt 
+                      -p example1.ped 
+                      -m family
 ```
 
 VarSelect writes down the timestamp as Job Id when analysis begins (ex: 20170105162548), and, therefore, directory “VarSelectAnalysisResult_20170105162548/” is created. The log files and the intermediate results are stored in this directory. When the primary analysis is finished, example1_varselect.db is created. 
@@ -265,21 +265,21 @@ Through the family workflow, five specific columns come with the Job Id: is_AR_2
 The following command filters the variants of compound heterozygosity inheritance and that shows the information of chromosome, position, ref allele, alt allele, gene and genotype of the selective variants.
 
 ```
-**gemini query --header 
-* **            *-q 'select chrom,start,ref,alt,gene,gts from variants 
-                 ****where is_CH_20170105162548 = 1'***** 
-             **example1_varselect.db**                   ***
+gemini query --header 
+             -q 'select chrom,start,ref,alt,gene,gts from variants 
+                 where is_CH_20170105162548 = 1' 
+             example1_varselect.db          
 ```
 
 
  Column “in_analysis_20170105162548” records variants qualifying the criteria of workflow analysis, and, in this case, is a union of the five genetic models. Variants of the five genetic models can be filtered out by following command: 
 
 ```
-**gemini query --header* *-q 'select chrom,start,ref,alt,is_AR_20170105162548,***** 
-*                          is_CH_20170105162548,is_DR_20170105162548, 
-                          ****is_TH_20170105162548,is_XL_20170105162548 ****from variants 
-                          where in_analysis_20170105162548=1'*****   
-              *example1_varselect.db*   ***
+gemini query --header -q 'select chrom,start,ref,alt,is_AR_20170105162548,
+                          is_CH_20170105162548,is_DR_20170105162548, 
+                          is_TH_20170105162548,is_XL_20170105162548 from variants 
+                          where in_analysis_20170105162548=1'
+              example1_varselect.db
 ```
 
  
@@ -298,9 +298,9 @@ In this case, we use the variants of chromosome 22 of three samples, including b
 To start the analysis, please type in the following command. 
 
 ```
-**varselect.pl annotate -v example2.txt ***** 
-                      *-p example2.ped***** 
-                      *-m paired**
+varselect.pl annotate -v example2.txt
+                      -p example2.ped 
+                      -m paired
 ```
 
 When the analysis is finished, the file “example2_varselect.db” is created at the same directory.VarSelect compares the genotypic difference between the control (unaffected) and the case (affected) samples, and assign ‘LOH’ or ‘de_novo’ tags for loss of heterozygosity or *de novo* somatic mutations. There are several columns including ‘is_LOH’, ‘LOH_samples’, ‘is_denovo’ and** ‘**denovo_samples’ specific in the paired case/control workflow. 
@@ -308,10 +308,10 @@ When the analysis is finished, the file “example2_varselect.db” is created a
  The following commands filters out the *de novo* somatic variants.
 
 ```
-**gemini query --header ****-q 'select chrom, start, ref, alt, gts, 
-****                          denovo_samples_20170106175124 from ****variants 
+gemini query --header -q 'select chrom, start, ref, alt, gts, 
+                          denovo_samples_20170106175124 from variants 
                           where is_denovo_20170106175124=1'
-             ****example2_varselect.db**
+             example2_varselect.db
 ```
 
 ## **Example 3 – Re-analysis and comparison (secondary analysis)**
