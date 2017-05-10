@@ -377,7 +377,7 @@ gemini query --header -q 'select chrom,start,ref,alt,gts from variants
 ```
 
  
-To identify the de novo mutations that present in both ccRCC and lung meta samples, we can compare the results from the two (primary) analysis (jobs) by intersecting the results. Please note that only analyses stored in the same database (db) file can be compared (namely secondary analysis). In this example, common *de novo *mutations can be selected by typing in the following command.
+To identify the de novo mutations that present in both ccRCC and lung meta samples, we can compare the results from the two (primary) analysis (jobs) by intersecting the results. Please note that only analyses stored in the same database (db) file can be compared (namely secondary analysis). In this example, common *de novo* mutations can be selected by typing in the following command.
 
 ```
 varselect.pl compare -a 20170109183415
