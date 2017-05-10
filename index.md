@@ -1,4 +1,4 @@
-# VarSelect Manual 20170413
+# VarSelect Manual
 
 ## Before you start
 
@@ -101,7 +101,7 @@ The gender and phenotype information is also required, and is specified by the -
 When the variants are annotated, VarSelect creates a SQLite database file by using the `GEMINI framework.``[1]` The database can be queried and filtered by using the GEMINI and/or the SQL commands to extract the annotation information.
 
 ```
-**gemini query --header -q 'select * from variants limit 10' /path/to/varselect.db**
+gemini query --header -q 'select * from variants limit 10' /path/to/varselect.db
 ```
 
 VarSelect also annotates copy number variation (CNV) produced by CNVkit[10] to the variants. The option -c specifies the file describing the list of CNV calls as following format:
@@ -116,21 +116,21 @@ VarSelect annotates CNV to the database with tags ‘cnv_samples’ and ‘cnv_l
 VarSelect also integrates the gene expression profiles, if provided, to annotate sequence variants. VarSelect currently supports the results from DEXseq,[11, 12] sailfish[13] and featureCounts.[14] VarSelect annotates the variants with the following tags ‘xpr_samples’, ‘xpr_readcounts’, ‘xpr_fpkm’, and ‘xpr_tpm’. The option -x specifies the file describing the list of gene expression profiles as following format:
 
 ```
-**sample1,readcount,/path/to/file/of/reads_counts
- sample1,exoncount,/path/to/file/of/dexseq_generated_exoncounts
- sample1,fpkm,/path/to/combined.fpkm
- sample1,tpm,/path/to/combined.gene.sf.tpm
- sample2,readcount,/path/to/file/of/reads_counts
- sample2,exoncount,/path/to/file/of/dexseq_generated_exoncounts
- sample2,fpkm,/path/to/combined.fpkm
- sample2,tpm,/path/to/combined.gene.sf.tpm**
+sample1,readcount,/path/to/file/of/reads_counts
+sample1,exoncount,/path/to/file/of/dexseq_generated_exoncounts
+sample1,fpkm,/path/to/combined.fpkm
+sample1,tpm,/path/to/combined.gene.sf.tpm
+sample2,readcount,/path/to/file/of/reads_counts
+sample2,exoncount,/path/to/file/of/dexseq_generated_exoncounts
+sample2,fpkm,/path/to/combined.fpkm
+sample2,tpm,/path/to/combined.gene.sf.tpm
 ```
 
  
 Quantitative change between the paired samples is pairwise computed and annotated with the tags ‘xpr_fc_samples’, ‘xpr_foldchange_readcount’, ‘xpr_foldchange_fpkm’, and ‘xpr_foldchange_tpm’.
 
 
-## ****Built-in analytic workflow for family and paired sample analysis****
+## **Built-in analytic workflow for family and paired sample analysis**
 
 In the primary analysis, VarSelect provides two common analytic workflows: 1) family and 2) paired case-control analysis, by specifying the option “-m family” or “-m paired”, respectively.
 
@@ -139,31 +139,31 @@ For family analysis, VarSelect analyzes the genetic variants for five genetic mo
 For paired case-control analysis, VarSelect labels the changes of nucleotides between the paired samples with either 'loss of heterozygous (LOH)' or 'de novo somatic mutations'. The changes are labelled with the tags: is_LOH and is_denovo. The result of each analysis is recorded by a tag ‘in_analysis_{jobid}’, while the 'jobid' is the time when the analysis begins.
 
 
-## ****Start from vcf files by multiple callers ****
+## **Start from vcf files by multiple callers**
 
 Different variant callers deliver inconsistent variant calling reports while the majority are consistent.[15] VarSelect deals with such situation by processing multiple VCF files by different variants callers in two ways: 1) unify all reported variants or 2) intersect variants reported by all callers. The option -k flag triggers this function, followed by the options -u (union) or -i (intersection), depending on the analytic purpose.
 
 ```
-**varselect.pl annotate* *-v /path/to/vcf/files/list 
-* **                     *-p /path/to/ped/file 
-* **                     *-m workflow_mode 
-* **                     *-k * *-i**
+varselect.pl annotate -v /path/to/vcf/files/list 
+                      -p /path/to/ped/file 
+                      -m workflow_mode 
+                      -k -i
 ```
 
 The list specifying VCF files is slightly different from the single-caller mode since a sample would now have multiple VCF files. User must specify sample, variant callers, and the associated VCF files. An extra comma separated field with the name of variant caller is added to the end of each line as follows:
 
 ```
-**sample1,/path/to/vcf/file1,**caller1**
- sample1,/path/to/vcf/file2,**caller2**
- sample2,/path/to/vcf/file3,**caller1**
- sample2,/path/to/vcf/file4,**caller2****
+sample1,/path/to/vcf/file1,caller1
+sample1,/path/to/vcf/file2,caller2
+sample2,/path/to/vcf/file3,caller1
+sample2,/path/to/vcf/file4,caller2
 ```
 
 
 Please note that regardless selection for the union or intersection, inconsistent calls among different callers are regarded ambiguity and are marked and removed from further analysis. The list of removed variants will also be stored in the result directory.
 
 
-## ****Primary analysis and updates of VarSelect database ****
+## **Primary analysis and updates of VarSelect database**
 
 Samples can go through either the family or the paired case-control workflow (namely primary analysis) depending on the study design. Primary analysis can be performed repeatedly by inclusion and/or exclusion of samples. The label of the phenotypic information (e.g. tumor and normal; affected and unaffected) of the samples can be changed and thereafter analyzed, according to the labels specified in the PED file. Samples begun with a hash character '#' in the PED file are excluded from the downstream analysis. In the example of the PED file shown here, the samples “uncle” and “aunt” are herein excluded from the downstream analysis. 
 
@@ -179,23 +179,23 @@ Samples can go through either the family or the paired case-control workflow (na
 A first full run of primary analysis creates a VarSelect database, which is required for recording all the results of subsequent re-analyses (repetitive primary analyses). The -d option specifies the location of where the database file is stored. 
 
 ```
-**varselect.pl analysis* *-d /path/to/gemini/db 
-* **                     *-p /path/to/modified/ped/file 
-* **                     *-m workflow mode 
-       *               *-k * *-u**
+varselect.pl analysis -d /path/to/gemini/db 
+                      -p /path/to/modified/ped/file 
+                      -m workflow mode 
+                      -k -u
 ```
 
 After re-analysis, a new analysis directory will be created named with a new jobid. The results and logs will also be stored in new directory. Filtered variants will be assigned new tag in_analysis_{new_jobid} in the VarSelect database.
 
-## ****Secondary analysis: compare results from any two primary analyses ****
+## **Secondary analysis: compare results from any two primary analyses**
 
 The results from different primary analyses can be compared for specific purposes and is termed ‘secondary analysis’. Comparison between any two primary analyses is specified by the options “-a” and “-b” as follows. 
 
 ```
-**varselect.pl compare*  *-a jobid_of_analysisA 
-* **                     *-b jobid_of_analysisB 
-* **                     *-c [1-4]
-        **              *-d /path/to/db_file*
+varselect.pl compare -a jobid_of_analysisA 
+                     -b jobid_of_analysisB 
+                     -c [1-4]
+                     -d /path/to/db_file
 ```
 
 The secondary analysis includes four comparisons including: 1) the union of analysis A and B. 2) intersection of analysis A and B. 3) variants presented in the analysis A but not in the analysis B. 4) variants present in the analysis B but not in the analysis A. Results of new secondary analysis will be stored in a new directory. The filtered variants will be assigned a tag in_analysis with the Job ID.
@@ -233,9 +233,9 @@ Bellows are the short description of each VarSelect script.
 * **Compound-het.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of compound heterozygosity inheritance. Filtered variants are labelled with the tag “is_CH”. 
 * **Denovo-recessive.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of *de novo* recessive mutations. Filtered variants are labelled with the tag “is_DR”. 
 * **Two-hits.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of two-hit recessive mutations. Filtered variants are labelled with the tag “is_TH”. 
-* **X-linked.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag “is_XL”. 
+* **X-linked.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag “is_XL”. 
 
-## ****Examples****
+## **Examples**
 
 The following examples are some common scenario.
 
@@ -303,7 +303,7 @@ varselect.pl annotate -v example2.txt
                       -m paired
 ```
 
-When the analysis is finished, the file “example2_varselect.db” is created at the same directory.VarSelect compares the genotypic difference between the control (unaffected) and the case (affected) samples, and assign ‘LOH’ or ‘de_novo’ tags for loss of heterozygosity or *de novo* somatic mutations. There are several columns including ‘is_LOH’, ‘LOH_samples’, ‘is_denovo’ and** ‘**denovo_samples’ specific in the paired case/control workflow. 
+When the analysis is finished, the file “example2_varselect.db” is created at the same directory.VarSelect compares the genotypic difference between the control (unaffected) and the case (affected) samples, and assign ‘LOH’ or ‘de_novo’ tags for loss of heterozygosity or *de novo* somatic mutations. There are several columns including ‘is_LOH’, ‘LOH_samples’, ‘is_denovo’ and ‘denovo_samples’ specific in the paired case/control workflow. 
 
  The following commands filters out the *de novo* somatic variants.
 
