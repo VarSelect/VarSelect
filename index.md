@@ -212,10 +212,10 @@ Bellows are the short description of each VarSelect script.
 * **loh_detector.pl** is triggered by vs_analysis.pl for the paired case/control analytic workflow. The script checks variant genotype between the affected and unaffected samples, and classifies the loss of heterozygosity (LOH) variants. Variants classified as LOH are labeled with the tag ‘is_LOH’. Further description of the paired case/control workflow is described in the next section. 
 * **denovo_detector.pl** is triggered by vs_analysis.pl for the paired case/control analytic workflow. The script compares variants both in the control and the case sample for *de novo* mutations, and labels with the tag ‘is_denovo’. Further description of the paired case/control workflow is described in the next section.
 * **Autosomal-recessive.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of autosomal recessive inheritance. Filtered variants are labelled with the tag ‘is_AR’. 
-* **Compound-het.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of compound heterozygosity inheritance. Filtered variants are labelled with the tag ‘is_CH’. 
-* Denovo-recessive.py is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of *de novo* recessive mutations. Filtered variants are labelled with the tag ‘is_DR’. 
-* **Second-hit.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of second-hit recessive mutations. Filtered variants are labelled with the tag ‘is_SH’. 
-* **X-linked.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag ‘is_XL’. 
+* **Compound-het.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of compound heterozygosity inheritance. Filtered variants are labelled with the tag ‘is_CH’. 
+* **Denovo-recessive.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of *de novo* recessive mutations. Filtered variants are labelled with the tag ‘is_DR’. 
+* **Second-hit.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of second-hit recessive mutations. Filtered variants are labelled with the tag ‘is_SH’. 
+* **X-linked.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag ‘is_XL’. 
 
 ## **Examples**
 
@@ -339,17 +339,17 @@ Replicate the example3_mark1.ped file and save as the example3_mark2.ped. Mark t
 
 ```
 example3           blood         0             0             1             1
- #example3           ccRCC         0             0             1             2
- example3           meta-lung     0             0             1             2
+#example3           ccRCC         0             0             1             2
+example3           meta-lung     0             0             1             2
 ```
 
  
 Perform original analysis again with the new edited ped file to identify the *de novo* variants present in the metastatic lung tumor.
 
 ```
- varselect.pl analysis -d example2_20170525112231_varselect.db
-                       -p example3_mark2.ped
-                       -m paired
+varselect.pl analysis -d example2_20170525112231_varselect.db
+                      -p example3_mark2.ped
+                      -m paired
 ```
 
  
@@ -388,7 +388,6 @@ varselect.pl compare -a 20170525115516
                      -c 4  
                      -d example2_20170525112231_varselect.db
 ```
-
 
 
 ### **Example 4 – comparison of multiple variants callers**
