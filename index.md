@@ -6,50 +6,60 @@
 
 The following tools are required for running VarSelect, please follow the instruction and install all the following tools for full benefits. Please note that the current version of VarSelect supports only the human genome reference hg19/GRCh37. The support for GRCh38 will be available shortly. 
 
-**Gemini**
+#### **Gemini**
  Gemini[1] is an analytic framework for human genetic variations by taking advantage of the SQLite database engine. It can be downloaded and installed by following the instruction at [`https://gemini.readthedocs.io/en/latest/content/installation.html`](https://gemini.readthedocs.io/en/latest/content/installation.html). Once installed, please follow the commands to download the data files of the additional annotations, such as the GERP[2] and CADD[3] scores at [`https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations`](https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations).
 
-**VEP**
+#### **VEP**
  VEP[4] is a comprehensive variants annotation tool, and is part of the Ensembl project. To install VEP, please follow the instruction at [`http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html`](http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html). Please note that the pre-built cache files are required for speeding up the annotation process. Please follow the instruction step by step at [`http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html`](http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html) to download VEP of GRCh37 version. 
 
-**VEP plugins**
+#### **VEP plugins**
  VEP supports plugin modules to incorporate annotations from the external datasets. VarSelect requires the dbNSFP plugin, which are available at [`https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm`](https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm), respectively. 
 
-**dbNSFP**
+#### **dbNSFP**
  dbNSFP[5, 6] annotates genome-wide non-synonymous single nucleotide variations (nsSNVs). The data file of dbNSFP is available at [`https://sites.google.com/site/jpopgen/dbNSFP`](https://sites.google.com/site/jpopgen/dbNSFP). 
 
-**annovar**
+#### **annovar**
  ANNOVAR[7] is a variant annotation tool with high efficiency to a variety of annotation databases, and is available at [`http://annovar.openbioinformatics.org/en/latest/user-guide/download/`](http://annovar.openbioinformatics.org/en/latest/user-guide/download/). Please note that a license is required. Please follow the instruction at [`http://annovar.openbioinformatics.org/en/latest/user-guide/startup/`](http://annovar.openbioinformatics.org/en/latest/user-guide/startup/) to install scripts into proper directories when all the required packages are downloaded. Databases will be automatically installed by the VarSelect installation script.
 
-**snpEff**
+#### **snpEff**
  snpEff[8] annotates and predicts the impact of genetic variants, and is available at [`http://snpeff.sourceforge.net/download.html`](http://snpeff.sourceforge.net/download.html). After downloading, please also download the pre-built snpEff annotation database. Please note that the current version of VarSelect is based on human genome reference hg19/GRCh37. Please download it with following command:
-**java –jar /path/to/your/snpEff.jar download –v GRCh37.75**
+```
+java –jar /path/to/your/snpEff.jar download –v GRCh37.75
+```
  
-**vcftools**[`vcftools`](https://vcftools.github.io/)[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at [`https://vcftools.github.io/index.html`](https://vcftools.github.io/index.html). Please follow the instruction to install vcftools at [`https://vcftools.github.io/examples.html`](https://vcftools.github.io/examples.html).
+#### **vcftools**
+[`vcftools`](https://vcftools.github.io/)[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at [`https://vcftools.github.io/index.html`](https://vcftools.github.io/index.html). Please follow the instruction to install vcftools at [`https://vcftools.github.io/examples.html`](https://vcftools.github.io/examples.html).
 
-**bcftools, bgzip, tabix**
+#### **bcftools, bgzip, tabix**
  bcftools, bgzip and tabix are tools to compress, index and manipulate VCF files. bcftools is available at [`http://www.htslib.org/download/`](http://www.htslib.org/download/), and includes the bgzip and the tabix tools in the software release.
 
 ## **Download VarSelect**
 
-The latest version of VarSelect is available a*t* https://github.com/VarSelect/  **.**
+The latest version of VarSelect is available at https://github.com/VarSelect/  
 
 ### **Install VarSelect**
 
 Please make sure that you have downloaded all the required packages and resources needed by VarSelect. When you are all set, please run the following command to decompress the VarSelect files.
-        **tar zxvf VarSelect-latest.tar.gz**
+```
+tar zxvf VarSelect-latest.tar.gz
+```
+
 After extracting the package, run the VarSelect installation script
-        */path/to/your/VarSelect/install_VarSelect.pl*
+```
+/path/to/your/VarSelect/install_VarSelect.pl
+```
+
 Add the VarSelect path to your system's $PATH settings
-        **export PATH=/path/to/your/VarSelect/dir:$PATH**
- 
+```
+export PATH=/path/to/your/VarSelect/dir:$PATH
+``` 
 
 ## **Quick Start**
 
 VarSelect script is executable only on command line. Please use ‘-h’ flag for the basic usage information. 
 
 ```
-`varselect.pl -h`
+varselect.pl -h
 ```
 
 VarSelect annotates and analyzes sequence variants, and compares the results from different original analyses. To start using VarSelect, please use ‘annotate’ to process your vcf file(s) of interests.
@@ -80,7 +90,7 @@ VarSelect also annotates copy number variation (CNV) produced by CNVkit[10] to t
 
 ```
 sample1,/path/to/cns/file1
- sample2,/path/to/cns/file2
+sample2,/path/to/cns/file2
 ```
 
 VarSelect annotates CNV to the database with tags ‘cnv_samples’ and ‘cnv_log2’, and computes quantitative change by log base 2 between the paired samples. The results are tagged ‘cnv_fc_samples’ and ‘cnv_foldchange_log2’. 
@@ -176,36 +186,36 @@ The comparative analysis includes four comparisons including: 1) the union of an
 
 Bellows are the short description of each VarSelect script. 
 
-    * **varselect.pl** is the main script of VarSelect, and includes three commands: annotate (initial annotation), analysis (original and re-analysis) and compare (comparative analysis). 
-        * Command ‘annotate’ triggers the script vs_annotate.pl to annotate VCF files from scratch. It also triggers the script vs_analysis.pl to specify workflow of choice. There are three required options: ‘-v sample-vcf file list’, ‘-p PED file’, ‘-m workflow mode’. 
-        * Command ‘analysis’ triggers the script vs_analysis.pl. There are three required options: ‘-d gemini db file’, ‘-p PED file’, ‘-m workflow mode’. 
-        * Command ‘compare’ triggers the script vs_compare.pl to compare results between two or multiple original analyses. There are four required options: ‘-a’ and ‘-b’ to specify the id of the analysis A and B. Option ‘-c’ specifies the method of comparison (1. union, 2. intersection, 3. A only, and 4. B only). Option ‘-d’ specifies the VarSelect database file.
-    * **vs_annotate.pl** is triggered by varselect.pl for three functions. 
-        * Firstly, it processes the VCF files, of which from same sample will be joined together by vcf-concat of VCFtools.[9] VCF files of different samples are then merged into a single VCF file by vcf-merge included in the VCFtools. The variants in the sex chromosome in merged VCF file will be fixed for ploidy by vcf-fix-ploidy in the VCFtools.
-        * Secondly, the script triggers VEP,[4] snpEff[8] and ANNOVAR[7] for annotation.
-        * Thirdly, the script triggers the Gemini framework to generate a SQLite database for downstream analysis. 
-    * **vs_analysis.pl** is triggered by varselect.pl to analyze variants by taking into account the genotypes, disease status, and the provided copy number and gene expression information. 
-        * If option ‘-k’ specified, multi-caller mode is turned on with union (option ‘-u’) or intersection (option ‘-i’) set of variants from different callers.
-        * If option ‘-c’ specified, the script triggers cnvkit_parse.pl to annotate copy number variation to the variants.
-        * If option ‘–x’ specified, the script triggers xprprofile_parse.pl to annotate gene expression information to the variants.
-        * The script supports two built-in analytic workflows by specifying -m option. For the paired case-control workflow, it triggers loh_detector.pl and denovo_detector.pl scripts to classify variants of loss of heterozygosity or of de novo changes. For the family workflow, the script triggers five scripts including Autosomal-recessive.py, Compound-het.py, Denovo-recessive.py, Second-hit.py and X-linked.py to classify the variants into the related genetic models. All variants selected by the workflow will be annotated on the tag ‘in_analysis_{analysis id}’ in the varselect_variants table of the database.
-    * **vs_compare.pl** is triggered by varselect.pl to extract the intersection, union, or subtraction of variants between any two original analyses.
-    * **vsl_annot.pl** is triggered by vs_annotation.pl, vs_analysis.pl and vs_compare.pl to add new columns and that attaching annotation in the VarSelect database.
-    * **create_view_for_varselect.pl** is triggered by vs_annotation.pl, vs_analysis.pl and vs_compare.pl to create a view by merging the updated tables in the VarSelect database file.
-    * **run_vep.pl** is triggered by vs_annotate.pl to annotate VCF file through the Ensembl VEP.[4] The script also enables the dbNSFP plugin[5, 6] to annotate the non-synonymous variants.
-    * **run_snpeff.pl** is triggered by vs_annotate.pl to annotate VCF file through snpEff.[8] 
-    * **run_annovar.pl** is triggered by vs_annotate.pl to annotate VCF file through ANNOVAR.[7]
-    * **GO_parse.pl** is triggered by vs_annotate.pl to annotate variants with the Gene Ontology (GO) terms.[16] The GO terms are assigned based on the transcripts where variants reside.
-    * **pathway_parse.pl** is triggered by vs_annotate.pl to annotate variants on KEGG pathways.[17-19] Associated pathways will be extracted by the built-in ‘gemini pathways’ in the GEMINI framework.
-    * **cnvkit_parser.pl** is triggered by vs_analysis.pl to annotate variants with the information of copy number variation. It extracts the log2 values where each variant resides and compute the CNV changes between the paired samples.
-    * **xprprofile_parser.pl** is triggered by vs_analysis.pl to annotate variants with gene express profiles. The script supports the annotation of four gene expression profiles, including gene-based read counts, exon-based read counts, gene-based tpm (Transcripts Per Kilobase Million), and gene-based fpkm (Fragments Per Kilobase Million). Please specify the -x option followed by the file of gene expression profiles.
-    * **loh_detector.pl** is triggered by vs_analysis.pl for the paired case/control analytic workflow. The script checks variant genotype between the affected and unaffected samples, and classifies the loss of heterozygosity (LOH) variants. Variants classified as LOH are labeled with the tag ‘is_LOH’. Further description of the paired case/control workflow is described in the next section. 
-    * **denovo_detector.pl** is triggered by vs_analysis.pl for the paired case/control analytic workflow. The script compares variants both in the control and the case sample for *de novo* mutations, and labels with the tag ‘is_denovo’. Further description of the paired case/control workflow is described in the next section.
-    * **Autosomal-recessive.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of autosomal recessive inheritance. Filtered variants are labelled with the tag ‘is_AR’. 
-    * **Compound-het.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of compound heterozygosity inheritance. Filtered variants are labelled with the tag ‘is_CH’. 
-    * Denovo-recessive.py is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of *de novo* recessive mutations. Filtered variants are labelled with the tag ‘is_DR’. 
-    * **Second-hit.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of second-hit recessive mutations. Filtered variants are labelled with the tag ‘is_SH’. 
-    * **X-linked.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag ‘is_XL’. 
+* **varselect.pl** is the main script of VarSelect, and includes three commands: annotate (initial annotation), analysis (original and re-analysis) and compare (comparative analysis). 
+    * Command ‘annotate’ triggers the script vs_annotate.pl to annotate VCF files from scratch. It also triggers the script vs_analysis.pl to specify workflow of choice. There are three required options: ‘-v sample-vcf file list’, ‘-p PED file’, ‘-m workflow mode’. 
+    * Command ‘analysis’ triggers the script vs_analysis.pl. There are three required options: ‘-d gemini db file’, ‘-p PED file’, ‘-m workflow mode’. 
+    * Command ‘compare’ triggers the script vs_compare.pl to compare results between two or multiple original analyses. There are four required options: ‘-a’ and ‘-b’ to specify the id of the analysis A and B. Option ‘-c’ specifies the method of comparison (1. union, 2. intersection, 3. A only, and 4. B only). Option ‘-d’ specifies the VarSelect database file.
+* **vs_annotate.pl** is triggered by varselect.pl for three functions. 
+    * Firstly, it processes the VCF files, of which from same sample will be joined together by vcf-concat of VCFtools.[9] VCF files of different samples are then merged into a single VCF file by vcf-merge included in the VCFtools. The variants in the sex chromosome in merged VCF file will be fixed for ploidy by vcf-fix-ploidy in the VCFtools.
+    * Secondly, the script triggers VEP,[4] snpEff[8] and ANNOVAR[7] for annotation.
+    * Thirdly, the script triggers the Gemini framework to generate a SQLite database for downstream analysis. 
+* **vs_analysis.pl** is triggered by varselect.pl to analyze variants by taking into account the genotypes, disease status, and the provided copy number and gene expression information. 
+    * If option ‘-k’ specified, multi-caller mode is turned on with union (option ‘-u’) or intersection (option ‘-i’) set of variants from different callers.
+    * If option ‘-c’ specified, the script triggers cnvkit_parse.pl to annotate copy number variation to the variants.
+    * If option ‘–x’ specified, the script triggers xprprofile_parse.pl to annotate gene expression information to the variants.
+    * The script supports two built-in analytic workflows by specifying -m option. For the paired case-control workflow, it triggers loh_detector.pl and denovo_detector.pl scripts to classify variants of loss of heterozygosity or of de novo changes. For the family workflow, the script triggers five scripts including Autosomal-recessive.py, Compound-het.py, Denovo-recessive.py, Second-hit.py and X-linked.py to classify the variants into the related genetic models. All variants selected by the workflow will be annotated on the tag ‘in_analysis_{analysis id}’ in the varselect_variants table of the database.
+* **vs_compare.pl** is triggered by varselect.pl to extract the intersection, union, or subtraction of variants between any two original analyses.
+* **vsl_annot.pl** is triggered by vs_annotation.pl, vs_analysis.pl and vs_compare.pl to add new columns and that attaching annotation in the VarSelect database.
+* **create_view_for_varselect.pl** is triggered by vs_annotation.pl, vs_analysis.pl and vs_compare.pl to create a view by merging the updated tables in the VarSelect database file.
+* **run_vep.pl** is triggered by vs_annotate.pl to annotate VCF file through the Ensembl VEP.[4] The script also enables the dbNSFP plugin[5, 6] to annotate the non-synonymous variants.
+* **run_snpeff.pl** is triggered by vs_annotate.pl to annotate VCF file through snpEff.[8] 
+* **run_annovar.pl** is triggered by vs_annotate.pl to annotate VCF file through ANNOVAR.[7]
+* **GO_parse.pl** is triggered by vs_annotate.pl to annotate variants with the Gene Ontology (GO) terms.[16] The GO terms are assigned based on the transcripts where variants reside.
+* **pathway_parse.pl** is triggered by vs_annotate.pl to annotate variants on KEGG pathways.[17-19] Associated pathways will be extracted by the built-in ‘gemini pathways’ in the GEMINI framework.
+* **cnvkit_parser.pl** is triggered by vs_analysis.pl to annotate variants with the information of copy number variation. It extracts the log2 values where each variant resides and compute the CNV changes between the paired samples.
+* **xprprofile_parser.pl** is triggered by vs_analysis.pl to annotate variants with gene express profiles. The script supports the annotation of four gene expression profiles, including gene-based read counts, exon-based read counts, gene-based tpm (Transcripts Per Kilobase Million), and gene-based fpkm (Fragments Per Kilobase Million). Please specify the -x option followed by the file of gene expression profiles.
+* **loh_detector.pl** is triggered by vs_analysis.pl for the paired case/control analytic workflow. The script checks variant genotype between the affected and unaffected samples, and classifies the loss of heterozygosity (LOH) variants. Variants classified as LOH are labeled with the tag ‘is_LOH’. Further description of the paired case/control workflow is described in the next section. 
+* **denovo_detector.pl** is triggered by vs_analysis.pl for the paired case/control analytic workflow. The script compares variants both in the control and the case sample for *de novo* mutations, and labels with the tag ‘is_denovo’. Further description of the paired case/control workflow is described in the next section.
+* **Autosomal-recessive.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of autosomal recessive inheritance. Filtered variants are labelled with the tag ‘is_AR’. 
+* **Compound-het.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of compound heterozygosity inheritance. Filtered variants are labelled with the tag ‘is_CH’. 
+* Denovo-recessive.py is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of *de novo* recessive mutations. Filtered variants are labelled with the tag ‘is_DR’. 
+* **Second-hit.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of second-hit recessive mutations. Filtered variants are labelled with the tag ‘is_SH’. 
+* **X-linked.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag ‘is_XL’. 
 
 ## **Examples**
 
