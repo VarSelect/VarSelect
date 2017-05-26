@@ -439,7 +439,7 @@ Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. I
     * Decomposition of multiple alternative alleles on the same position results in inconsistent number of allelic quality value and that causing errors on merging VCF files. These variants are currently excluded from downstream analysis.
     * Variants of multiple-nucleotide substitution are incorrectly annotated as ‘indel’ by the Gemini framework. This problem only appeared in the scenario when the VCF files come from the Ion Torrent platform or converted by the CGA (Complete Genomics Analysis) tools. 
 
-## ****Reference****
+## **Reference**
 
  
 1.        Paila U, Chapman BA, Kirchner R, Quinlan AR. GEMINI: integrative exploration of genetic variation and genome annotations. PLoS Comput Biol. 2013;9(7):e1003153. doi: 10.1371/journal.pcbi.1003153. PubMed PMID: 23874191; PubMed Central PMCID: PMCPMC3715403.
@@ -462,4 +462,3 @@ Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. I
 18.     Kanehisa M, Sato Y, Kawashima M, Furumichi M, Tanabe M. KEGG as a reference resource for gene and protein annotation. Nucleic Acids Res. 2016;44(D1):D457-62. doi: 10.1093/nar/gkv1070. PubMed PMID: 26476454; PubMed Central PMCID: PMCPMC4702792.
 19.     Kanehisa M, Furumichi M, Tanabe M, Sato Y, Morishima K. KEGG: new perspectives on genomes, pathways, diseases and drugs. Nucleic Acids Res. 2017;45(D1):D353-D61. doi: 10.1093/nar/gkw1092. PubMed PMID: 27899662; PubMed Central PMCID: PMCPMC5210567.
  
-
