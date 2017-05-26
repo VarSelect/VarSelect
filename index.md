@@ -135,10 +135,10 @@ varselect.pl annotate -v /path/to/vcf/files/list
 The list specifying VCF files is slightly different from the single-caller mode since a sample would now have multiple VCF files. User must specify sample, variant callers, and the associated VCF files. An extra comma separated field with the name of variant caller is added to the end of each line as follows:
 
 ```
-sample1,/path/to/vcf/file1,**caller1**
- sample1,/path/to/vcf/file2,**caller2**
- sample2,/path/to/vcf/file3,**caller1**
- sample2,/path/to/vcf/file4,**caller2**
+sample1,/path/to/vcf/file1,caller1
+sample1,/path/to/vcf/file2,caller2
+sample2,/path/to/vcf/file3,caller1
+sample2,/path/to/vcf/file4,caller2
 ```
 
 Please note that regardless selection for the union or intersection, inconsistent calls among different callers are regarded ambiguity and are marked and removed from further analysis. The list of removed variants will also be stored in the result directory.
