@@ -18,14 +18,14 @@ The following tools are required for running VarSelect, please follow the instru
 **dbNSFP**
  dbNSFP[5, 6] annotates genome-wide non-synonymous single nucleotide variations (nsSNVs). The data file of dbNSFP is available at [`https://sites.google.com/site/jpopgen/dbNSFP`](https://sites.google.com/site/jpopgen/dbNSFP). 
 
-****annovar****
+**annovar**
  ANNOVAR[7] is a variant annotation tool with high efficiency to a variety of annotation databases, and is available at [`http://annovar.openbioinformatics.org/en/latest/user-guide/download/`](http://annovar.openbioinformatics.org/en/latest/user-guide/download/). Please note that a license is required. Please follow the instruction at [`http://annovar.openbioinformatics.org/en/latest/user-guide/startup/`](http://annovar.openbioinformatics.org/en/latest/user-guide/startup/) to install scripts into proper directories when all the required packages are downloaded. Databases will be automatically installed by the VarSelect installation script.
 
 **snpEff**
  snpEff[8] annotates and predicts the impact of genetic variants, and is available at [`http://snpeff.sourceforge.net/download.html`](http://snpeff.sourceforge.net/download.html). After downloading, please also download the pre-built snpEff annotation database. Please note that the current version of VarSelect is based on human genome reference hg19/GRCh37. Please download it with following command:
 **java –jar /path/to/your/snpEff.jar download –v GRCh37.75**
  
-****vcftools****[`vcftools`](https://vcftools.github.io/)[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at [`https://vcftools.github.io/index.html`](https://vcftools.github.io/index.html). Please follow the instruction to install vcftools at [`https://vcftools.github.io/examples.html`](https://vcftools.github.io/examples.html).
+**vcftools**[`vcftools`](https://vcftools.github.io/)[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at [`https://vcftools.github.io/index.html`](https://vcftools.github.io/index.html). Please follow the instruction to install vcftools at [`https://vcftools.github.io/examples.html`](https://vcftools.github.io/examples.html).
 
 **bcftools, bgzip, tabix**
  bcftools, bgzip and tabix are tools to compress, index and manipulate VCF files. bcftools is available at [`http://www.htslib.org/download/`](http://www.htslib.org/download/), and includes the bgzip and the tabix tools in the software release.
@@ -64,8 +64,8 @@ The annotation function combines the variants from different samples and annotat
 
 ```
 sample1,/path/to/vcf/file1
- sample1,/path/to/vcf/file2
- sample2,/path/to/vcf/file3 
+sample1,/path/to/vcf/file2
+sample2,/path/to/vcf/file3 
 ```
 
 The gender and phenotype information is also required, and is specified by the ‘-p’ option followed by a PED file containing the pedigree information. An example of the PED file is available at http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped.
@@ -102,7 +102,7 @@ sample1,readcount,/path/to/file/of/reads_counts
 Quantitative change between the paired samples is pairwise computed and annotated with the tags ‘xpr_fc_samples’, ‘xpr_foldchange_readcount’, ‘xpr_foldchange_fpkm’, and ‘xpr_foldchange_tpm’.
 
 
-## ****Built-in analytic workflow for family and paired sample analysis****
+## **Built-in analytic workflow for family and paired sample analysis**
 
 In the original analysis, VarSelect provides two common analytic workflows: 1) family and 2) paired case-control analysis, by specifying the option ‘-m family’ or ‘-m paired’, respectively.
  
@@ -110,7 +110,7 @@ For family analysis, VarSelect analyzes the genetic variants for five genetic mo
  
 For paired case-control analysis, VarSelect labels the changes of nucleotides between the paired samples with either 'loss of heterozygous (LOH)' or 'de novo mutations'. The changes are labelled with the tags: ‘is_LOH’ and ‘is_denovo’. The result of each analysis is recorded by a tag ‘in_analysis_{analysis id}’, while the 'analysis id' is the time when the analysis begins.
 
-## ****Start from vcf files by multiple callers ****
+## **Start from vcf files by multiple callers**
 
 Different variant callers deliver inconsistent variant calling reports while the majority are consistent.[15] VarSelect deals with such situation by processing multiple VCF files by different variants callers in two ways: 1) unify all reported variants or 2) intersect variants reported by all callers. The option ‘-k’ flag triggers this function, followed by the options ‘-u’ (union) or ‘-i’ (intersection), depending on the analytic purpose.
 
@@ -133,7 +133,7 @@ sample1,/path/to/vcf/file1,**caller1**
 
 Please note that regardless selection for the union or intersection, inconsistent calls among different callers are regarded ambiguity and are marked and removed from further analysis. The list of removed variants will also be stored in the result directory.
 
-## ****Original analysis and updates of VarSelect database ****
+## **Original analysis and updates of VarSelect database**
 
 Samples can go through either the family or the paired case-control workflow (namely original analysis) depending on the study design. Original analysis can be performed repeatedly by inclusion and/or exclusion of samples. The label of the phenotypic information (e.g. tumor and normal; affected and unaffected) of the samples can be changed and thereafter analyzed, according to the labels specified in the PED file. Samples begun with a hash character '#' in the PED file are excluded from the downstream analysis. In the example of the PED file shown here, the samples ‘uncle’ and ‘aunt’ are herein excluded from the downstream analysis. 
 
@@ -157,7 +157,8 @@ varselect.pl analysis  -d /path/to/gemini/db
 ```
 
 After re-analysis, a new analysis directory will be created named with a new analysis id. The results and logs will also be stored in new directory. Filtered variants will be assigned new tag in_analysis_{new analysis id} in the VarSelect database.
-****Comparative analysis: compare results from any two original analyses ****
+
+## **Comparative analysis: compare results from any two original analyses**
 The results from different original analyses can be compared for specific purposes and is termed ‘comparative analysis’. Comparison between any two original analyses is specified by the options ‘-a’ and ‘-b’ as follows. 
 
 ```
@@ -167,7 +168,7 @@ varselect.pl compare  -a <Analysis id of analysisA>
                       -d /path/to/db_file
 ```
 
-** **
+
 The comparative analysis includes four comparisons including: 1) the union of analysis A and B. 2) intersection of analysis A and B. 3) variants presented in the analysis A but not in the analysis B. 4) variants present in the analysis B but not in the analysis A. Results of new comparative analysis will be stored in a new directory. The filtered variants will be assigned a tag in_analysis with the analysis id.
  
 
@@ -206,11 +207,11 @@ Bellows are the short description of each VarSelect script.
     * **Second-hit.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of second-hit recessive mutations. Filtered variants are labelled with the tag ‘is_SH’. 
     * **X-linked.py **is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag ‘is_XL’. 
 
-## ****Examples****
+## **Examples**
 
 The following examples are some common scenario.
 
-****Example 1 - samples of a family study****
+### **Example 1 - samples of a family study**
 In this example, the variants on the chromosome 22 of a family trio, including NA12878, NA12891, NA12892 are used to demonstrate for family-based analysis.
  All required files are stored in the directory ‘varselect/examples/example1/‘. 
 
@@ -279,7 +280,7 @@ To start the analysis, please type in the following command.
 
 When the analysis is finished, the file ‘example2_20170525112231_varselect.db’ is created at the same directory. VarSelect compares the genotypic difference between the control (unaffected) and the case (affected) samples, and assign ‘LOH’ or ‘de_novo’ tags for loss of heterozygosity or *de novo* mutations. There are several columns including ‘is_LOH’, ‘LOH_samples’, ‘is_denovo’ and** ‘**denovo_samples’ specific in the paired case/control workflow. 
 
- The following commands filters out the *de novo* variants.
+The following commands filters out the *de novo* variants.
 
 ```
 gemini query --header -q 'select chrom, start, ref, alt, gts
@@ -290,17 +291,20 @@ gemini query --header -q 'select chrom, start, ref, alt, gts
 
 
 
-### ****Example 3 – Re-analysis and comparison (comparative analysis)****
+### **Example 3 – Re-analysis and comparison (comparative analysis)**
 
 Multiple original analysis (re-analysis) can be performed for various study purposes. Comparison between any two original analyses provides the flexibility of hierarchical comparison, namely comparative analysis. User can repeat analysis by marking labels written in the ped file. For example, in the case of ccRCC, you can filter the common *de novo* mutations presented in both ccRCC and the metastatic lung samples by performing ‘blood vs. ccRCC’ and ‘blood vs. meta-lung’ analyses. The third sample in the ped file marked with '#' will be excluded in this analysis.Firstly, replicate the ped file in the sample 2 as follows.
-**cp example2.ped example3_mark1.ped**
+
+```
+cp example2.ped example3_mark1.ped
+```
 
  Edit the example3_mark1.ped file and exclude meta-lung sample by marking the ‘#’sign.
 
 ```
 example3        blood           0             0             1             1
- example3        ccRCC           0             0             1             2
- #example3     meta-lung          0             0             1             2
+example3        ccRCC           0             0             1             2
+#example3     meta-lung          0             0             1             2
 ```
 
  
@@ -316,11 +320,11 @@ varselect.pl analysis -d example2_20170525112231_varselect.db
 A new analysis id is generated at the time of beginning the re-analysis (ex: 20170525115516), and a new directory ‘VarSelectAnalysisResult_20170525115516/’ is created to store the log files and intermediate result files of this new analysis.When the re-analysis is finished, new columns tagged with new analysis id are added into the varselect_variants table.
  
 User can use following command to filter out the *de novo* mutations in the ccRCC.
-**gemini query --header **
-*** **                     *-q 'select chrom,start,ref,alt,gts from variants **
-*** **                     **  *where is_denovo_**20170525115516** = 1'**
-*** **                     *example2_**20170525112231**_varselect.db**
- 
+```
+gemini query --header -q 'select chrom,start,ref,alt,gts from variants 
+                          where is_denovo_20170525115516 = 1'
+                      example2_20170525112231_varselect.db
+```
 Replicate the example3_mark1.ped file and save as the example3_mark2.ped. Mark the sample meta-lung with the ‘#’ sign. 
 
 ```
@@ -360,15 +364,16 @@ varselect.pl compare -a 20170525115516
 
  
 A new analysis id is assigned (say, 20170525145751) and the database (db) will be updated with the results of the comparative analysis. The following command lists the results stored in the database (db). 
-***               *gemini query --header **
-***                               *-q 'select chrom, start, ref, alt, gts from variants**
-***                               **  *where in_analysis_**20170525145751** = 1' **
-***                               *example2_**20170525112231**_varselect.db**
+```
+gemini query --header -q 'select chrom, start, ref, alt, gts from variants
+                          where in_analysis_20170525145751 = 1' 
+                      example2_20170525112231_varselect.db
+```
  
 If you want to select the novel mutations present only in the metastasis tumor, change the option –c to ‘4’ (unique to the analysis in the ‘-b’ option). 
 
 ```
-*varselect.*pl compare -a 20170525115516
+varselect.pl compare -a 20170525115516
                      -b 20170525121013   
                      -c 4  
                      -d example2_20170525112231_varselect.db
@@ -376,12 +381,11 @@ If you want to select the novel mutations present only in the metastasis tumor, 
 
 
 
-### ****Example 4 – comparison of multiple variants callers****
+### **Example 4 – comparison of multiple variants callers**
 
 Union and/or intersection of variant calls from different variants callers could be of interests. This example demonstrates manipulation of results of two popular variant callers: ‘GATK-HaplotypeCaller’ and ‘freebayes’.
  
 All files are stored in directory ‘examples/example4/’ :
-
     * NA12878-gatk-chr22.vcf.gz
     * NA12891-gatk-chr22.vcf.gz
     * NA12892-gatk-chr22.vcf.gz
@@ -392,14 +396,15 @@ All files are stored in directory ‘examples/example4/’ :
 
 ```
 NA12878,NA12878-gatk-chr22.vcf.gz,gatk-haplotype
- NA12891,NA12891-gatk-chr22.vcf.gz,gatk-haplotype
- NA12892,NA12892-gatk-chr22.vcf.gz,gatk-haplotype
- NA12878,NA12878-freebayes-chr22.vcf.gz,freebayes
- NA12891,NA12891-freebayes-chr22.vcf.gz,freebayes
- NA12892,NA12892-freebayes-chr22.vcf.gz,freebayes
+NA12891,NA12891-gatk-chr22.vcf.gz,gatk-haplotype
+NA12892,NA12892-gatk-chr22.vcf.gz,gatk-haplotype
+NA12878,NA12878-freebayes-chr22.vcf.gz,freebayes
+NA12891,NA12891-freebayes-chr22.vcf.gz,freebayes
+NA12892,NA12892-freebayes-chr22.vcf.gz,freebayes
 ```
 
-    * example4.ped: A tab separated file that describes the relationship between each sample, gender and disease status.
+    
+  * example4.ped: A tab separated file that describes the relationship between each sample, gender and disease status.
 
  
 The ‘-k’ option triggers the multi-caller function, followed by ‘-u’ option for preparing the union of all variants from the two variant callers. 
