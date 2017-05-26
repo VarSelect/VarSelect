@@ -1,43 +1,41 @@
 # VarSelect Manual (20170525)
 
-## **Manual**
-
-### **Before you start**
+## **Before you start**
 
 The following tools are required for running VarSelect, please follow the instruction and install all the following tools for full benefits. Please note that the current version of VarSelect supports only the human genome reference hg19/GRCh37. The support for GRCh38 will be available shortly. 
 
-#### **Gemini**
+### **Gemini**
  Gemini[1] is an analytic framework for human genetic variations by taking advantage of the SQLite database engine. It can be downloaded and installed by following the instruction at [`https://gemini.readthedocs.io/en/latest/content/installation.html`](https://gemini.readthedocs.io/en/latest/content/installation.html). Once installed, please follow the commands to download the data files of the additional annotations, such as the GERP[2] and CADD[3] scores at [`https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations`](https://gemini.readthedocs.io/en/latest/content/installation.html#updating-the-gemini-executables-and-annotations).
 
-#### **VEP**
+### **VEP**
  VEP[4] is a comprehensive variants annotation tool, and is part of the Ensembl project. To install VEP, please follow the instruction at [`http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html`](http://www.ensembl.org/info/docs/tools/vep/script/vep_tutorial.html). Please note that the pre-built cache files are required for speeding up the annotation process. Please follow the instruction step by step at [`http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html`](http://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html) to download VEP of GRCh37 version. 
 
-#### **VEP plugins**
+### **VEP plugins**
  VEP supports plugin modules to incorporate annotations from the external datasets. VarSelect requires the dbNSFP plugin, which are available at [`https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm`](https://github.com/Ensembl/VEP_plugins/blob/release/86/dbNSFP.pm), respectively. 
 
-#### **dbNSFP**
+### **dbNSFP**
  dbNSFP[5, 6] annotates genome-wide non-synonymous single nucleotide variations (nsSNVs). The data file of dbNSFP is available at [`https://sites.google.com/site/jpopgen/dbNSFP`](https://sites.google.com/site/jpopgen/dbNSFP). 
 
-#### **annovar**
+### **annovar**
  ANNOVAR[7] is a variant annotation tool with high efficiency to a variety of annotation databases, and is available at [`http://annovar.openbioinformatics.org/en/latest/user-guide/download/`](http://annovar.openbioinformatics.org/en/latest/user-guide/download/). Please note that a license is required. Please follow the instruction at [`http://annovar.openbioinformatics.org/en/latest/user-guide/startup/`](http://annovar.openbioinformatics.org/en/latest/user-guide/startup/) to install scripts into proper directories when all the required packages are downloaded. Databases will be automatically installed by the VarSelect installation script.
 
-#### **snpEff**
+### **snpEff**
  snpEff[8] annotates and predicts the impact of genetic variants, and is available at [`http://snpeff.sourceforge.net/download.html`](http://snpeff.sourceforge.net/download.html). After downloading, please also download the pre-built snpEff annotation database. Please note that the current version of VarSelect is based on human genome reference hg19/GRCh37. Please download it with following command:
 ```
 java –jar /path/to/your/snpEff.jar download –v GRCh37.75
 ```
  
-#### **vcftools**
+### **vcftools**
 [`vcftools`](https://vcftools.github.io/)[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at [`https://vcftools.github.io/index.html`](https://vcftools.github.io/index.html). Please follow the instruction to install vcftools at [`https://vcftools.github.io/examples.html`](https://vcftools.github.io/examples.html).
 
-#### **bcftools, bgzip, tabix**
+### **bcftools, bgzip, tabix**
  bcftools, bgzip and tabix are tools to compress, index and manipulate VCF files. bcftools is available at [`http://www.htslib.org/download/`](http://www.htslib.org/download/), and includes the bgzip and the tabix tools in the software release.
 
-## **Download VarSelect**
+# **Download VarSelect**
 
 The latest version of VarSelect is available at https://github.com/VarSelect/  
 
-### **Install VarSelect**
+# **Install VarSelect**
 
 Please make sure that you have downloaded all the required packages and resources needed by VarSelect. When you are all set, please run the following command to decompress the VarSelect files.
 ```
@@ -54,7 +52,7 @@ Add the VarSelect path to your system's $PATH settings
 export PATH=/path/to/your/VarSelect/dir:$PATH
 ``` 
 
-## **Quick Start**
+# **Quick Start**
 
 VarSelect script is executable only on command line. Please use ‘-h’ flag for the basic usage information. 
 
@@ -99,20 +97,20 @@ VarSelect also integrates the gene expression profiles, if provided, to annotate
 
 ```
 sample1,readcount,/path/to/file/of/reads_counts
- sample1,exoncount,/path/to/file/of/dexseq_generated_exoncounts
- sample1,fpkm,/path/to/combined.fpkm
- sample1,tpm,/path/to/combined.gene.sf.tpm
- sample2,readcount,/path/to/file/of/reads_counts
- sample2,exoncount,/path/to/file/of/dexseq_generated_exoncounts
- sample2,fpkm,/path/to/combined.fpkm
- sample2,tpm,/path/to/combined.gene.sf.tpm
+sample1,exoncount,/path/to/file/of/dexseq_generated_exoncounts
+sample1,fpkm,/path/to/combined.fpkm
+sample1,tpm,/path/to/combined.gene.sf.tpm
+sample2,readcount,/path/to/file/of/reads_counts
+sample2,exoncount,/path/to/file/of/dexseq_generated_exoncounts
+sample2,fpkm,/path/to/combined.fpkm
+sample2,tpm,/path/to/combined.gene.sf.tpm
 ```
 
  
 Quantitative change between the paired samples is pairwise computed and annotated with the tags ‘xpr_fc_samples’, ‘xpr_foldchange_readcount’, ‘xpr_foldchange_fpkm’, and ‘xpr_foldchange_tpm’.
 
 
-## **Built-in analytic workflow for family and paired sample analysis**
+# **Built-in analytic workflow for family and paired sample analysis**
 
 In the original analysis, VarSelect provides two common analytic workflows: 1) family and 2) paired case-control analysis, by specifying the option ‘-m family’ or ‘-m paired’, respectively.
  
@@ -120,7 +118,7 @@ For family analysis, VarSelect analyzes the genetic variants for five genetic mo
  
 For paired case-control analysis, VarSelect labels the changes of nucleotides between the paired samples with either 'loss of heterozygous (LOH)' or 'de novo mutations'. The changes are labelled with the tags: ‘is_LOH’ and ‘is_denovo’. The result of each analysis is recorded by a tag ‘in_analysis_{analysis id}’, while the 'analysis id' is the time when the analysis begins.
 
-## **Start from vcf files by multiple callers**
+# **Start from vcf files by multiple callers**
 
 Different variant callers deliver inconsistent variant calling reports while the majority are consistent.[15] VarSelect deals with such situation by processing multiple VCF files by different variants callers in two ways: 1) unify all reported variants or 2) intersect variants reported by all callers. The option ‘-k’ flag triggers this function, followed by the options ‘-u’ (union) or ‘-i’ (intersection), depending on the analytic purpose.
 
@@ -143,17 +141,17 @@ sample2,/path/to/vcf/file4,caller2
 
 Please note that regardless selection for the union or intersection, inconsistent calls among different callers are regarded ambiguity and are marked and removed from further analysis. The list of removed variants will also be stored in the result directory.
 
-## **Original analysis and updates of VarSelect database**
+# **Original analysis and updates of VarSelect database**
 
 Samples can go through either the family or the paired case-control workflow (namely original analysis) depending on the study design. Original analysis can be performed repeatedly by inclusion and/or exclusion of samples. The label of the phenotypic information (e.g. tumor and normal; affected and unaffected) of the samples can be changed and thereafter analyzed, according to the labels specified in the PED file. Samples begun with a hash character '#' in the PED file are excluded from the downstream analysis. In the example of the PED file shown here, the samples ‘uncle’ and ‘aunt’ are herein excluded from the downstream analysis. 
 
 ```
-#family_id  sample_id    paternal_id     maternal_id     sex   phenotype
+#family_id   sample_id    paternal_id     maternal_id     sex   phenotype
  family1       father          0              0            1        1
  family1       mother          0              0            2        1
  family1       daughter      father         mother         2        2
- #family1       uncle           0              0            2        2
- #family1       aunt            0              0            2        2
+#family1       uncle           0              0            2        2
+#family1       aunt            0              0            2        2
 ```
 
  
@@ -168,7 +166,7 @@ varselect.pl analysis  -d /path/to/gemini/db
 
 After re-analysis, a new analysis directory will be created named with a new analysis id. The results and logs will also be stored in new directory. Filtered variants will be assigned new tag in_analysis_{new analysis id} in the VarSelect database.
 
-## **Comparative analysis: compare results from any two original analyses**
+# **Comparative analysis: compare results from any two original analyses**
 The results from different original analyses can be compared for specific purposes and is termed ‘comparative analysis’. Comparison between any two original analyses is specified by the options ‘-a’ and ‘-b’ as follows. 
 
 ```
@@ -182,7 +180,7 @@ varselect.pl compare  -a <Analysis id of analysisA>
 The comparative analysis includes four comparisons including: 1) the union of analysis A and B. 2) intersection of analysis A and B. 3) variants presented in the analysis A but not in the analysis B. 4) variants present in the analysis B but not in the analysis A. Results of new comparative analysis will be stored in a new directory. The filtered variants will be assigned a tag in_analysis with the analysis id.
  
 
-## **Description of VarSelect scripts**
+# **Description of VarSelect scripts**
 
 Bellows are the short description of each VarSelect script. 
 
@@ -217,11 +215,11 @@ Bellows are the short description of each VarSelect script.
 * **Second-hit.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of second-hit recessive mutations. Filtered variants are labelled with the tag ‘is_SH’. 
 * **X-linked.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag ‘is_XL’. 
 
-## **Examples**
+# **Examples**
 
 The following examples are some common scenario.
 
-### **Example 1 - samples of a family study**
+## **Example 1 - samples of a family study**
 In this example, the variants on the chromosome 22 of a family trio, including NA12878, NA12891, NA12892 are used to demonstrate for family-based analysis.
  All required files are stored in the directory ‘varselect/examples/example1/‘. 
 
@@ -269,7 +267,7 @@ gemini query --header
 
  
 
-### **Example 2 - paired case/control samples**
+## **Example 2 - paired case/control samples**
 
 In this case, we use the variants of chromosome 22 of three samples, including blood, primary tumor ccRCC (clear cell Renal Cell Carcinoma), and a metastasis lung cancer available at [`https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP063388`](https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP063388).
  All files are stored in subdirectory examples/example2/
@@ -301,7 +299,7 @@ gemini query --header -q 'select chrom, start, ref, alt, gts
 
 
 
-### **Example 3 – Re-analysis and comparison (comparative analysis)**
+## **Example 3 – Re-analysis and comparison (comparative analysis)**
 
 Multiple original analysis (re-analysis) can be performed for various study purposes. Comparison between any two original analyses provides the flexibility of hierarchical comparison, namely comparative analysis. User can repeat analysis by marking labels written in the ped file. For example, in the case of ccRCC, you can filter the common *de novo* mutations presented in both ccRCC and the metastatic lung samples by performing ‘blood vs. ccRCC’ and ‘blood vs. meta-lung’ analyses. The third sample in the ped file marked with '#' will be excluded in this analysis.Firstly, replicate the ped file in the sample 2 as follows.
 
@@ -309,7 +307,7 @@ Multiple original analysis (re-analysis) can be performed for various study purp
 cp example2.ped example3_mark1.ped
 ```
 
- Edit the example3_mark1.ped file and exclude meta-lung sample by marking the ‘#’sign.
+Edit the example3_mark1.ped file and exclude meta-lung sample by marking the ‘#’sign.
 
 ```
 example3        blood           0             0             1             1
@@ -390,7 +388,7 @@ varselect.pl compare -a 20170525115516
 ```
 
 
-### **Example 4 – comparison of multiple variants callers**
+## **Example 4 – comparison of multiple variants callers**
 
 Union and/or intersection of variant calls from different variants callers could be of interests. This example demonstrates manipulation of results of two popular variant callers: ‘GATK-HaplotypeCaller’ and ‘freebayes’.
  
@@ -419,10 +417,10 @@ NA12892,NA12892-freebayes-chr22.vcf.gz,freebayes
 The ‘-k’ option triggers the multi-caller function, followed by ‘-u’ option for preparing the union of all variants from the two variant callers. 
 
 ```
-`varselect.pl annotate ``-v example4.txt 
-``                      -p example4.ped 
-                      ``-m family `` 
-                      -k -u `
+varselect.pl annotate -v example4.txt 
+                      -p example4.ped 
+                      -m family 
+                      -k -u
 ```
 
 A new analysis id (ex:20170524173222) is tagged on a new directory ‘VarSelectAnalysisResult_20170524173222/’. Please note that the variants with inconsistent calls by different callers are removed from the downstream analysis.
@@ -448,31 +446,31 @@ varselect.pl analysis -d example4_20170524173222_varselect.db
 
 Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. Inconsistent calls by different callers are removed for the downstream analysis and listed in file ‘multicaller_intersect_inconsistant_20170525103746.txt’ in the same directory of analysis output.
 
-## **Known issues**
+# **Known issues**
 
     * Decomposition of multiple alternative alleles on the same position results in inconsistent number of allelic quality value and that causing errors on merging VCF files. These variants are currently excluded from downstream analysis.
     * Variants of multiple-nucleotide substitution are incorrectly annotated as ‘indel’ by the Gemini framework. This problem only appeared in the scenario when the VCF files come from the Ion Torrent platform or converted by the CGA (Complete Genomics Analysis) tools. 
 
-## **Reference**
+# **Reference**
 
  
-1.        Paila U, Chapman BA, Kirchner R, Quinlan AR. GEMINI: integrative exploration of genetic variation and genome annotations. PLoS Comput Biol. 2013;9(7):e1003153. doi: 10.1371/journal.pcbi.1003153. PubMed PMID: 23874191; PubMed Central PMCID: PMCPMC3715403.
-2.        Davydov EV, Goode DL, Sirota M, Cooper GM, Sidow A, Batzoglou S. Identifying a high fraction of the human genome to be under selective constraint using GERP++. PLoS Comput Biol. 2010;6(12):e1001025. doi: 10.1371/journal.pcbi.1001025. PubMed PMID: 21152010; PubMed Central PMCID: PMCPMC2996323.
-3.        Kircher M, Witten DM, Jain P, O'Roak BJ, Cooper GM, Shendure J. A general framework for estimating the relative pathogenicity of human genetic variants. Nat Genet. 2014;46(3):310-5. doi: 10.1038/ng.2892. PubMed PMID: 24487276; PubMed Central PMCID: PMCPMC3992975.
-4.        McLaren W, Gil L, Hunt SE, Riat HS, Ritchie GR, Thormann A, et al. The Ensembl Variant Effect Predictor. Genome Biol. 2016;17(1):122. doi: 10.1186/s13059-016-0974-4. PubMed PMID: 27268795; PubMed Central PMCID: PMCPMC4893825.
-5.        Liu X, Wu C, Li C, Boerwinkle E. dbNSFP v3.0: A One-Stop Database of Functional Predictions and Annotations for Human Nonsynonymous and Splice-Site SNVs. Hum Mutat. 2016;37(3):235-41. doi: 10.1002/humu.22932. PubMed PMID: 26555599; PubMed Central PMCID: PMCPMC4752381.
-6.        Liu X, Jian X, Boerwinkle E. dbNSFP: a lightweight database of human nonsynonymous SNPs and their functional predictions. Hum Mutat. 2011;32(8):894-9. doi: 10.1002/humu.21517. PubMed PMID: 21520341; PubMed Central PMCID: PMCPMC3145015.
-7.        Wang K, Li M, Hakonarson H. ANNOVAR: functional annotation of genetic variants from high-throughput sequencing data. Nucleic Acids Res. 2010;38(16):e164. doi: 10.1093/nar/gkq603. PubMed PMID: 20601685; PubMed Central PMCID: PMCPMC2938201.
-8.        Cingolani P, Platts A, Wang le L, Coon M, Nguyen T, Wang L, et al. A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3. Fly (Austin). 2012;6(2):80-92. doi: 10.4161/fly.19695. PubMed PMID: 22728672; PubMed Central PMCID: PMCPMC3679285.
-9.        Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, et al. The variant call format and VCFtools. Bioinformatics. 2011;27(15):2156-8. doi: 10.1093/bioinformatics/btr330. PubMed PMID: 21653522; PubMed Central PMCID: PMCPMC3137218.
-10.     Talevich E, Shain AH, Botton T, Bastian BC. CNVkit: Genome-Wide Copy Number Detection and Visualization from Targeted DNA Sequencing. PLoS Comput Biol. 2016;12(4):e1004873. doi: 10.1371/journal.pcbi.1004873. PubMed PMID: 27100738; PubMed Central PMCID: PMCPMC4839673.
-11.     Anders S, Reyes A, Huber W. Detecting differential usage of exons from RNA-seq data. Genome Res. 2012;22(10):2008-17. doi: 10.1101/gr.133744.111. PubMed PMID: 22722343; PubMed Central PMCID: PMCPMC3460195.
-12.     Reyes A, Anders S, Weatheritt RJ, Gibson TJ, Steinmetz LM, Huber W. Drift and conservation of differential exon usage across tissues in primate species. Proc Natl Acad Sci U S A. 2013;110(38):15377-82. doi: 10.1073/pnas.1307202110. PubMed PMID: 24003148; PubMed Central PMCID: PMCPMC3780897.
-13.     Patro R, Mount SM, Kingsford C. Sailfish enables alignment-free isoform quantification from RNA-seq reads using lightweight algorithms. Nat Biotechnol. 2014;32(5):462-4. doi: 10.1038/nbt.2862. PubMed PMID: 24752080; PubMed Central PMCID: PMCPMC4077321.
-14.     Liao Y, Smyth GK, Shi W. featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics. 2014;30(7):923-30. doi: 10.1093/bioinformatics/btt656. PubMed PMID: 24227677.
-15.     Pabinger S, Dander A, Fischer M, Snajder R, Sperk M, Efremova M, et al. A survey of tools for variant analysis of next-generation genome sequencing data. Brief Bioinform. 2014;15(2):256-78. doi: 10.1093/bib/bbs086. PubMed PMID: 23341494; PubMed Central PMCID: PMCPMC3956068.
-16.     Gene Ontology C. Gene Ontology Consortium: going forward. Nucleic Acids Res. 2015;43(Database issue):D1049-56. doi: 10.1093/nar/gku1179. PubMed PMID: 25428369; PubMed Central PMCID: PMCPMC4383973.
-17.     Kanehisa M, Goto S. KEGG: kyoto encyclopedia of genes and genomes. Nucleic Acids Res. 2000;28(1):27-30. PubMed PMID: 10592173; PubMed Central PMCID: PMCPMC102409.
-18.     Kanehisa M, Sato Y, Kawashima M, Furumichi M, Tanabe M. KEGG as a reference resource for gene and protein annotation. Nucleic Acids Res. 2016;44(D1):D457-62. doi: 10.1093/nar/gkv1070. PubMed PMID: 26476454; PubMed Central PMCID: PMCPMC4702792.
-19.     Kanehisa M, Furumichi M, Tanabe M, Sato Y, Morishima K. KEGG: new perspectives on genomes, pathways, diseases and drugs. Nucleic Acids Res. 2017;45(D1):D353-D61. doi: 10.1093/nar/gkw1092. PubMed PMID: 27899662; PubMed Central PMCID: PMCPMC5210567.
+1. Paila U, Chapman BA, Kirchner R, Quinlan AR. GEMINI: integrative exploration of genetic variation and genome annotations. PLoS Comput Biol. 2013;9(7):e1003153. doi: 10.1371/journal.pcbi.1003153. PubMed PMID: 23874191; PubMed Central PMCID: PMCPMC3715403.
+2. Davydov EV, Goode DL, Sirota M, Cooper GM, Sidow A, Batzoglou S. Identifying a high fraction of the human genome to be under selective constraint using GERP++. PLoS Comput Biol. 2010;6(12):e1001025. doi: 10.1371/journal.pcbi.1001025. PubMed PMID: 21152010; PubMed Central PMCID: PMCPMC2996323.
+3. Kircher M, Witten DM, Jain P, O'Roak BJ, Cooper GM, Shendure J. A general framework for estimating the relative pathogenicity of human genetic variants. Nat Genet. 2014;46(3):310-5. doi: 10.1038/ng.2892. PubMed PMID: 24487276; PubMed Central PMCID: PMCPMC3992975.
+4. McLaren W, Gil L, Hunt SE, Riat HS, Ritchie GR, Thormann A, et al. The Ensembl Variant Effect Predictor. Genome Biol. 2016;17(1):122. doi: 10.1186/s13059-016-0974-4. PubMed PMID: 27268795; PubMed Central PMCID: PMCPMC4893825.
+5. Liu X, Wu C, Li C, Boerwinkle E. dbNSFP v3.0: A One-Stop Database of Functional Predictions and Annotations for Human Nonsynonymous and Splice-Site SNVs. Hum Mutat. 2016;37(3):235-41. doi: 10.1002/humu.22932. PubMed PMID: 26555599; PubMed Central PMCID: PMCPMC4752381.
+6. Liu X, Jian X, Boerwinkle E. dbNSFP: a lightweight database of human nonsynonymous SNPs and their functional predictions. Hum Mutat. 2011;32(8):894-9. doi: 10.1002/humu.21517. PubMed PMID: 21520341; PubMed Central PMCID: PMCPMC3145015.
+7. Wang K, Li M, Hakonarson H. ANNOVAR: functional annotation of genetic variants from high-throughput sequencing data. Nucleic Acids Res. 2010;38(16):e164. doi: 10.1093/nar/gkq603. PubMed PMID: 20601685; PubMed Central PMCID: PMCPMC2938201.
+8. Cingolani P, Platts A, Wang le L, Coon M, Nguyen T, Wang L, et al. A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3. Fly (Austin). 2012;6(2):80-92. doi: 10.4161/fly.19695. PubMed PMID: 22728672; PubMed Central PMCID: PMCPMC3679285.
+9. Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, et al. The variant call format and VCFtools. Bioinformatics. 2011;27(15):2156-8. doi: 10.1093/bioinformatics/btr330. PubMed PMID: 21653522; PubMed Central PMCID: PMCPMC3137218.
+10. Talevich E, Shain AH, Botton T, Bastian BC. CNVkit: Genome-Wide Copy Number Detection and Visualization from Targeted DNA Sequencing. PLoS Comput Biol. 2016;12(4):e1004873. doi: 10.1371/journal.pcbi.1004873. PubMed PMID: 27100738; PubMed Central PMCID: PMCPMC4839673.
+11. Anders S, Reyes A, Huber W. Detecting differential usage of exons from RNA-seq data. Genome Res. 2012;22(10):2008-17. doi: 10.1101/gr.133744.111. PubMed PMID: 22722343; PubMed Central PMCID: PMCPMC3460195.
+12. Reyes A, Anders S, Weatheritt RJ, Gibson TJ, Steinmetz LM, Huber W. Drift and conservation of differential exon usage across tissues in primate species. Proc Natl Acad Sci U S A. 2013;110(38):15377-82. doi: 10.1073/pnas.1307202110. PubMed PMID: 24003148; PubMed Central PMCID: PMCPMC3780897.
+13. Patro R, Mount SM, Kingsford C. Sailfish enables alignment-free isoform quantification from RNA-seq reads using lightweight algorithms. Nat Biotechnol. 2014;32(5):462-4. doi: 10.1038/nbt.2862. PubMed PMID: 24752080; PubMed Central PMCID: PMCPMC4077321.
+14. Liao Y, Smyth GK, Shi W. featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics. 2014;30(7):923-30. doi: 10.1093/bioinformatics/btt656. PubMed PMID: 24227677.
+15. Pabinger S, Dander A, Fischer M, Snajder R, Sperk M, Efremova M, et al. A survey of tools for variant analysis of next-generation genome sequencing data. Brief Bioinform. 2014;15(2):256-78. doi: 10.1093/bib/bbs086. PubMed PMID: 23341494; PubMed Central PMCID: PMCPMC3956068.
+16. Gene Ontology C. Gene Ontology Consortium: going forward. Nucleic Acids Res. 2015;43(Database issue):D1049-56. doi: 10.1093/nar/gku1179. PubMed PMID: 25428369; PubMed Central PMCID: PMCPMC4383973.
+17. Kanehisa M, Goto S. KEGG: kyoto encyclopedia of genes and genomes. Nucleic Acids Res. 2000;28(1):27-30. PubMed PMID: 10592173; PubMed Central PMCID: PMCPMC102409.
+18. Kanehisa M, Sato Y, Kawashima M, Furumichi M, Tanabe M. KEGG as a reference resource for gene and protein annotation. Nucleic Acids Res. 2016;44(D1):D457-62. doi: 10.1093/nar/gkv1070. PubMed PMID: 26476454; PubMed Central PMCID: PMCPMC4702792.
+19. Kanehisa M, Furumichi M, Tanabe M, Sato Y, Morishima K. KEGG: new perspectives on genomes, pathways, diseases and drugs. Nucleic Acids Res. 2017;45(D1):D353-D61. doi: 10.1093/nar/gkw1092. PubMed PMID: 27899662; PubMed Central PMCID: PMCPMC5210567.
  
