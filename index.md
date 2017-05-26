@@ -105,7 +105,6 @@ sample2,exoncount,/path/to/file/of/dexseq_generated_exoncounts
 sample2,fpkm,/path/to/combined.fpkm
 sample2,tpm,/path/to/combined.gene.sf.tpm
 ```
-
  
 Quantitative change between the paired samples is pairwise computed and annotated with the tags ‘xpr_fc_samples’, ‘xpr_foldchange_readcount’, ‘xpr_foldchange_fpkm’, and ‘xpr_foldchange_tpm’.
 
@@ -128,7 +127,6 @@ varselect.pl annotate -v /path/to/vcf/files/list
                       -m workflow_mode 
                       -k  -i
 ```
-
  
 The list specifying VCF files is slightly different from the single-caller mode since a sample would now have multiple VCF files. User must specify sample, variant callers, and the associated VCF files. An extra comma separated field with the name of variant caller is added to the end of each line as follows:
 
@@ -153,7 +151,6 @@ Samples can go through either the family or the paired case-control workflow (na
 #family1       uncle           0              0            2        2
 #family1       aunt            0              0            2        2
 ```
-
  
 A first full run of original analysis creates a VarSelect database, which is required for recording all the results of subsequent re-analyses (repetitive original analyses). The ‘-d’ option specifies the location of where the database file is stored. 
 
@@ -216,20 +213,18 @@ Bellows are the short description of each VarSelect script.
 * **X-linked.py** is triggered by vs_analysis.pl for the family analytic workflow. The script filters variants of X-chromosome linked recessive inheritance. Filtered variants are labelled with the tag ‘is_XL’. 
 
 ## **Examples**
-
 The following examples are some common scenario.
 
 ### **Example 1 - samples of a family study**
 In this example, the variants on the chromosome 22 of a family trio, including NA12878, NA12891, NA12892 are used to demonstrate for family-based analysis.
  All required files are stored in the directory ‘varselect/examples/example1/‘. 
 
-    * NA12878_chr22.vcf.gz
-    * NA12891_chr22.vcf.gz
-    * NA12892_chr22.vcf.gz
-    * example1.txt: A comma separated file that describes the links between the samples and the associated VCF files. 
-    * example1.ped: A tab separated file that describes the pedigree information of this family, including gender and disease status. In this example, we hypothesize NA12878 is a sick child and that NA12891 and NA12892 are unaffected parents. The instruction of creating a ped file is available at the following website: [`http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped`](http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped)
-        
-        
+* NA12878_chr22.vcf.gz
+* NA12891_chr22.vcf.gz
+* NA12892_chr22.vcf.gz
+* example1.txt: A comma separated file that describes the links between the samples and the associated VCF files. 
+* example1.ped: A tab separated file that describes the pedigree information of this family, including gender and disease status. In this example, we hypothesize NA12878 is a sick child and that NA12891 and NA12892 are unaffected parents. The instruction of creating a ped file is available at the following website: [`http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped`](http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml#ped)
+              
 
 To run the analysis, please type in following command:
 
@@ -238,11 +233,9 @@ varselect.pl annotate -v example1.txt
                       -p example1.ped                              
                       -m family
 ```
-
  
 VarSelect writes down the timestamp as analysis id when analysis begins (ex: 20170524172945), and, therefore, directory ‘VarSelectAnalysisResult_20170524172945/’ is created. The log files and the intermediate results are stored in this directory. When the original analysis is finished, ‘example1_20170524172945_varselect.db’ is created. 
 Through the family workflow, five specific columns come with the analysis id: is_AR_20170524172945, is_CH_20170524172945, is_DR_20170524172945, is_SH_20170524172945 and is_XL_20170524172945 corresponding the following genetic models: autosomal recessive, compound heterozygosity, de novo recessive, second-hit recessive and X-linked recessive, respectively.
-
 
 The following command filters the variants of compound heterozygosity inheritance and that shows the information of chromosome, position, ref allele, alt allele, gene and genotype of the selective variants.
 
@@ -252,7 +245,6 @@ gemini query --header
                  where is_CH_20170524172945 = 1'
               example1_20170524172945_varselect.db
 ```
-
 
  Column ‘in_analysis_20170524172945’ records variants qualifying the criteria of workflow analysis, and, in this case, is a union of the five genetic models. Variants of the five genetic models can be filtered out by following command: 
 
@@ -264,8 +256,6 @@ gemini query --header
                   from variants where in_analysis_20170524172945=1'
                example1_20170524172945_varselect.db   
 ```
-
- 
 
 ### **Example 2 - paired case/control samples**
 
@@ -297,8 +287,6 @@ gemini query --header -q 'select chrom, start, ref, alt, gts
                        example2_20170525112231_varselect.db
 ```
 
-
-
 ### **Example 3 – Re-analysis and comparison (comparative analysis)**
 
 Multiple original analysis (re-analysis) can be performed for various study purposes. Comparison between any two original analyses provides the flexibility of hierarchical comparison, namely comparative analysis. User can repeat analysis by marking labels written in the ped file. For example, in the case of ccRCC, you can filter the common *de novo* mutations presented in both ccRCC and the metastatic lung samples by performing ‘blood vs. ccRCC’ and ‘blood vs. meta-lung’ analyses. The third sample in the ped file marked with '#' will be excluded in this analysis.Firstly, replicate the ped file in the sample 2 as follows.
@@ -307,7 +295,7 @@ Multiple original analysis (re-analysis) can be performed for various study purp
 cp example2.ped example3_mark1.ped
 ```
 
-Edit the example3_mark1.ped file and exclude meta-lung sample by marking the ‘#’sign.
+Edit the example3_mark1.ped file and exclude meta-lung sample by marking the ‘#’ sign.
 
 ```
 example3        blood           0             0             1             1
@@ -333,6 +321,7 @@ gemini query --header -q 'select chrom,start,ref,alt,gts from variants
                           where is_denovo_20170525115516 = 1'
                       example2_20170525112231_varselect.db
 ```
+
 Replicate the example3_mark1.ped file and save as the example3_mark2.ped. Mark the sample meta-lung with the ‘#’ sign. 
 
 ```
@@ -340,7 +329,6 @@ example3           blood         0             0             1             1
 #example3           ccRCC         0             0             1             2
 example3           meta-lung     0             0             1             2
 ```
-
  
 Perform original analysis again with the new edited ped file to identify the *de novo* variants present in the metastatic lung tumor.
 
@@ -349,7 +337,6 @@ varselect.pl analysis -d example2_20170525112231_varselect.db
                       -p example3_mark2.ped
                       -m paired
 ```
-
  
 A new directory ‘VarSelectAnalysisResult_20170525121013/’ is created with the corresponding tags updated in the database.
 You can extract the *de novo* mutation presented in the metastasis tumor by the following command.
@@ -359,7 +346,6 @@ gemini query --header -q 'select chrom,start,ref,alt,gts from variants where
                           is_denovo_20170525121013 = 1'
                       example2_20170525112231_varselect.db
 ```
-
  
 To identify the de novo mutations that present in both ccRCC and lung meta samples, we can compare the results from the two (original) analyses by intersecting the results. Please note that only analyses stored in the same database (db) file can be compared (namely comparative analysis). In this example, common *de novo *mutations can be selected by typing in the following command.
 
@@ -369,7 +355,6 @@ varselect.pl compare -a 20170525115516
                      -c 2
                      -d example2_20170525112231_varselect.db
 ```
-
  
 A new analysis id is assigned (say, 20170525145751) and the database (db) will be updated with the results of the comparative analysis. The following command lists the results stored in the database (db). 
 ```
@@ -387,19 +372,18 @@ varselect.pl compare -a 20170525115516
                      -d example2_20170525112231_varselect.db
 ```
 
-
 ### **Example 4 – comparison of multiple variants callers**
 
 Union and/or intersection of variant calls from different variants callers could be of interests. This example demonstrates manipulation of results of two popular variant callers: ‘GATK-HaplotypeCaller’ and ‘freebayes’.
  
 All files are stored in directory ‘examples/example4/’ :
-    * NA12878-gatk-chr22.vcf.gz
-    * NA12891-gatk-chr22.vcf.gz
-    * NA12892-gatk-chr22.vcf.gz
-    * NA12892-freebayes-chr22.vcf.gz: Variant calls from freebayes of chromosome 22 in these genomes
-    * NA12878-freebayes-chr22.vcf.gz
-    * NA12891-freebayes-chr22.vcf.gz
-    * example4.txt: A comma separated file that describes the links between the samples and the corresponding VCF files. For multi-caller function, an extra column is required to describing the corresponding variant caller.
+* NA12878-gatk-chr22.vcf.gz
+* NA12891-gatk-chr22.vcf.gz
+* NA12892-gatk-chr22.vcf.gz
+* NA12892-freebayes-chr22.vcf.gz: Variant calls from freebayes of chromosome 22 in these genomes
+* NA12878-freebayes-chr22.vcf.gz
+* NA12891-freebayes-chr22.vcf.gz
+* example4.txt: A comma separated file that describes the links between the samples and the corresponding VCF files. For multi-caller function, an extra column is required to describing the corresponding variant caller.
 
 ```
 NA12878,NA12878-gatk-chr22.vcf.gz,gatk-haplotype
@@ -409,9 +393,8 @@ NA12878,NA12878-freebayes-chr22.vcf.gz,freebayes
 NA12891,NA12891-freebayes-chr22.vcf.gz,freebayes
 NA12892,NA12892-freebayes-chr22.vcf.gz,freebayes
 ```
-
-    
-  * example4.ped: A tab separated file that describes the relationship between each sample, gender and disease status.
+  
+* example4.ped: A tab separated file that describes the relationship between each sample, gender and disease status.
 
  
 The ‘-k’ option triggers the multi-caller function, followed by ‘-u’ option for preparing the union of all variants from the two variant callers. 
@@ -446,13 +429,14 @@ varselect.pl analysis -d example4_20170524173222_varselect.db
 
 Please note that the two options ‘-u’ and ‘-i’ are mutually exclusive. Inconsistent calls by different callers are removed for the downstream analysis and listed in file ‘multicaller_intersect_inconsistant_20170525103746.txt’ in the same directory of analysis output.
 
+
 ## **Known issues**
 
     * Decomposition of multiple alternative alleles on the same position results in inconsistent number of allelic quality value and that causing errors on merging VCF files. These variants are currently excluded from downstream analysis.
     * Variants of multiple-nucleotide substitution are incorrectly annotated as ‘indel’ by the Gemini framework. This problem only appeared in the scenario when the VCF files come from the Ion Torrent platform or converted by the CGA (Complete Genomics Analysis) tools. 
 
-## **Reference**
 
+## **Reference**
  
 1. Paila U, Chapman BA, Kirchner R, Quinlan AR. GEMINI: integrative exploration of genetic variation and genome annotations. PLoS Comput Biol. 2013;9(7):e1003153. doi: 10.1371/journal.pcbi.1003153. PubMed PMID: 23874191; PubMed Central PMCID: PMCPMC3715403.
 2. Davydov EV, Goode DL, Sirota M, Cooper GM, Sidow A, Batzoglou S. Identifying a high fraction of the human genome to be under selective constraint using GERP++. PLoS Comput Biol. 2010;6(12):e1001025. doi: 10.1371/journal.pcbi.1001025. PubMed PMID: 21152010; PubMed Central PMCID: PMCPMC2996323.
