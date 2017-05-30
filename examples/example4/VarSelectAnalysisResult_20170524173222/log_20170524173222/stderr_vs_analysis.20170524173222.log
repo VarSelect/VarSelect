@@ -1,0 +1,94 @@
+Wed May 24 20:25:06 2017	Threads running start
+Wed May 24 20:25:07 2017	Multicaller processing start
+Wed May 24 20:25:07 2017	thread for vsl_annot start
+Wed May 24 20:26:52 2017	enqueue /peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl  -f ./VarSelectAnalysisResult_20170524173222/multicaller_unionset_20170524173222.vcf.gz  -e genotype_union_NA12878,genotype_union_NA12891,genotype_union_NA12892 -t text,text,text -c genotype_union_NA12878_20170524173222,genotype_union_NA12891_20170524173222,genotype_union_NA12892_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants  2> ./VarSelectAnalysisResult_20170524173222/log_20170524173222/stderr_vslannot_uniongt_20170524173222.log
+Wed May 24 20:26:52 2017	Multicaller processing finish
+Wed May 24 20:26:52 2017	Genotype frequency calculating start
+Wed May 24 20:26:52 2017	Loading genotype frequency of each sample, start.
+Wed May 24 20:26:52 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl  -f ./VarSelectAnalysisResult_20170524173222/multicaller_unionset_20170524173222.vcf.gz  -e genotype_union_NA12878,genotype_union_NA12891,genotype_union_NA12892 -t text,text,text -c genotype_union_NA12878_20170524173222,genotype_union_NA12891_20170524173222,genotype_union_NA12892_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants  2> ./VarSelectAnalysisResult_20170524173222/log_20170524173222/stderr_vslannot_uniongt_20170524173222.log
+update varselect_variants SET 'genotype_union_NA12878_20170524173222'=? , 'genotype_union_NA12891_20170524173222'=? , 'genotype_union_NA12892_20170524173222'=? where variant_id = ? 
+chr22, 16050251, A, T, 1
+chr22, 51243068, A, AT, 97918
+Wed May 24 20:27:16 2017	Loading genotype frequency of each sample, finish.
+Wed May 24 20:27:17 2017	vcf-annot affected vgt start
+Wed May 24 20:27:18 2017	update 10000 variants	10000 : 0
+Wed May 24 20:27:20 2017	update 20000 variants	10000 : 0
+Wed May 24 20:27:21 2017	update 30000 variants	10000 : 0
+Wed May 24 20:27:22 2017	update 40000 variants	10000 : 0
+Wed May 24 20:27:23 2017	update 50000 variants	10000 : 0
+Wed May 24 20:27:25 2017	update 60000 variants	10000 : 0
+Wed May 24 20:27:26 2017	update 70000 variants	10000 : 0
+Wed May 24 20:27:28 2017	update 80000 variants	10000 : 0
+Wed May 24 20:27:29 2017	update 90000 variants	10000 : 0
+match 95518 records
+Wed May 24 20:27:34 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl  -f ./VarSelectAnalysisResult_20170524173222/multicaller_unionset_20170524173222.vcf.gz  -e genotype_union_NA12878,genotype_union_NA12891,genotype_union_NA12892 -t text,text,text -c genotype_union_NA12878_20170524173222,genotype_union_NA12891_20170524173222,genotype_union_NA12892_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants  2> ./VarSelectAnalysisResult_20170524173222/log_20170524173222/stderr_vslannot_uniongt_20170524173222.log Finish
+Wed May 24 20:27:37 2017	vcf-annot affected vgt finish
+Wed May 24 20:27:37 2017	enqueue /peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170524173222/aff_gt_freq_20170524173222.vcf.gz  -e affected_vgt,affected_vgfreq,affected_altfreqsum -t text,text,float -c affected_vgt_20170524173222,affected_vgfreq_20170524173222,affected_altfreqsum_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants 
+Wed May 24 20:27:37 2017	vcf-annot un-affected vgt start
+Wed May 24 20:27:37 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170524173222/aff_gt_freq_20170524173222.vcf.gz  -e affected_vgt,affected_vgfreq,affected_altfreqsum -t text,text,float -c affected_vgt_20170524173222,affected_vgfreq_20170524173222,affected_altfreqsum_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants 
+ALTER table varselect_variants ADD COLUMN 'affected_vgt_20170524173222' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'affected_vgfreq_20170524173222' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'affected_altfreqsum_20170524173222' float DEFAULT NULL 
+update varselect_variants SET 'affected_vgt_20170524173222'=? , 'affected_vgfreq_20170524173222'=? , 'affected_altfreqsum_20170524173222'=? where variant_id = ? 
+chr22, 16050251, A, T, 1
+chr22, 51243068, A, AT, 97918
+Wed May 24 20:28:00 2017	vcf-annot un-affected vgt finish
+Wed May 24 20:28:00 2017	enqueue /peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract -f ./VarSelectAnalysisResult_20170524173222/unaff_gt_freq_20170524173222.vcf.gz -e unaffected_vgt,unaffected_vgfreq,unaffected_altfreqsum -t text,text,float -c unaffected_vgt_20170524173222,unaffected_vgfreq_20170524173222,unaffected_altfreqsum_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants
+Wed May 24 20:28:00 2017	Genotype frequency calculating finish
+Wed May 24 20:28:00 2017	Family workflow start
+Wed May 24 20:28:06 2017	update 10000 variants	6835 : 3165
+Wed May 24 20:28:08 2017	update 20000 variants	6616 : 3384
+Wed May 24 20:28:10 2017	update 30000 variants	5640 : 4360
+Wed May 24 20:28:12 2017	update 40000 variants	7090 : 2910
+Wed May 24 20:28:13 2017	update 50000 variants	6988 : 3012
+Wed May 24 20:28:15 2017	update 60000 variants	7548 : 2452
+Wed May 24 20:28:16 2017	update 70000 variants	7022 : 2978
+Wed May 24 20:28:17 2017	update 80000 variants	6761 : 3239
+Wed May 24 20:28:18 2017	update 90000 variants	7692 : 2308
+match 95518 records
+Wed May 24 20:28:26 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170524173222/aff_gt_freq_20170524173222.vcf.gz  -e affected_vgt,affected_vgfreq,affected_altfreqsum -t text,text,float -c affected_vgt_20170524173222,affected_vgfreq_20170524173222,affected_altfreqsum_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants  Finish
+Wed May 24 20:28:26 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract -f ./VarSelectAnalysisResult_20170524173222/unaff_gt_freq_20170524173222.vcf.gz -e unaffected_vgt,unaffected_vgfreq,unaffected_altfreqsum -t text,text,float -c unaffected_vgt_20170524173222,unaffected_vgfreq_20170524173222,unaffected_altfreqsum_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants
+ALTER table varselect_variants ADD COLUMN 'unaffected_vgt_20170524173222' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'unaffected_vgfreq_20170524173222' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'unaffected_altfreqsum_20170524173222' float DEFAULT NULL 
+update varselect_variants SET 'unaffected_vgt_20170524173222'=? , 'unaffected_vgfreq_20170524173222'=? , 'unaffected_altfreqsum_20170524173222'=? where variant_id = ? 
+chr22, 16050251, A, T, 1
+chr22, 51243068, A, AT, 97918
+Wed May 24 20:28:56 2017	update 10000 variants	9464 : 536
+Wed May 24 20:29:18 2017	update 20000 variants	9436 : 564
+Wed May 24 20:29:20 2017	update 30000 variants	9546 : 454
+Wed May 24 20:29:22 2017	update 40000 variants	9826 : 174
+Wed May 24 20:29:23 2017	update 50000 variants	9797 : 203
+Wed May 24 20:29:24 2017	update 60000 variants	9865 : 135
+Wed May 24 20:29:26 2017	update 70000 variants	9810 : 190
+Wed May 24 20:29:27 2017	update 80000 variants	9810 : 190
+Wed May 24 20:29:28 2017	update 90000 variants	9836 : 164
+match 95518 records
+Wed May 24 20:29:34 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract -f ./VarSelectAnalysisResult_20170524173222/unaff_gt_freq_20170524173222.vcf.gz -e unaffected_vgt,unaffected_vgfreq,unaffected_altfreqsum -t text,text,float -c unaffected_vgt_20170524173222,unaffected_vgfreq_20170524173222,unaffected_altfreqsum_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants Finish
+Wed May 24 20:32:26 2017	enqueue /peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170524173222/inanalysis_20170524173222.vcf.gz  -e is_AD_20170524173222,is_AR_20170524173222,is_CH_20170524173222,is_DD_20170524173222,is_DR_20170524173222,is_SH_20170524173222,is_XL_20170524173222,in_analysis_20170524173222 -t boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean -c is_AD_20170524173222,is_AR_20170524173222,is_CH_20170524173222,is_DD_20170524173222,is_DR_20170524173222,is_SH_20170524173222,is_XL_20170524173222,in_analysis_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants
+Wed May 24 20:32:26 2017	Thread finish
+Wed May 24 20:32:26 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170524173222/inanalysis_20170524173222.vcf.gz  -e is_AD_20170524173222,is_AR_20170524173222,is_CH_20170524173222,is_DD_20170524173222,is_DR_20170524173222,is_SH_20170524173222,is_XL_20170524173222,in_analysis_20170524173222 -t boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean -c is_AD_20170524173222,is_AR_20170524173222,is_CH_20170524173222,is_DD_20170524173222,is_DR_20170524173222,is_SH_20170524173222,is_XL_20170524173222,in_analysis_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants
+ALTER table varselect_variants ADD COLUMN 'is_AD_20170524173222' boolean DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'is_AR_20170524173222' boolean DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'is_CH_20170524173222' boolean DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'is_DD_20170524173222' boolean DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'is_DR_20170524173222' boolean DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'is_SH_20170524173222' boolean DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'is_XL_20170524173222' boolean DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'in_analysis_20170524173222' boolean DEFAULT NULL 
+update varselect_variants SET 'is_AD_20170524173222'=? , 'is_AR_20170524173222'=? , 'is_CH_20170524173222'=? , 'is_DD_20170524173222'=? , 'is_DR_20170524173222'=? , 'is_SH_20170524173222'=? , 'is_XL_20170524173222'=? , 'in_analysis_20170524173222'=? where variant_id = ? 
+chr22, 16050251, A, T, 1
+chr22, 51243068, A, AT, 97918
+Wed May 24 20:33:05 2017	update 10000 variants	2810 : 7190
+Wed May 24 20:33:06 2017	update 20000 variants	3386 : 6614
+Wed May 24 20:33:07 2017	update 30000 variants	2906 : 7094
+Wed May 24 20:33:10 2017	update 40000 variants	2525 : 7475
+Wed May 24 20:33:11 2017	update 50000 variants	3712 : 6288
+Wed May 24 20:33:12 2017	update 60000 variants	3097 : 6903
+Wed May 24 20:33:14 2017	update 70000 variants	3041 : 6959
+Wed May 24 20:33:16 2017	update 80000 variants	3744 : 6256
+Wed May 24 20:33:17 2017	update 90000 variants	2407 : 7593
+match 95518 records
+Wed May 24 20:33:25 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170524173222/inanalysis_20170524173222.vcf.gz  -e is_AD_20170524173222,is_AR_20170524173222,is_CH_20170524173222,is_DD_20170524173222,is_DR_20170524173222,is_SH_20170524173222,is_XL_20170524173222,in_analysis_20170524173222 -t boolean,boolean,boolean,boolean,boolean,boolean,boolean,boolean -c is_AD_20170524173222,is_AR_20170524173222,is_CH_20170524173222,is_DD_20170524173222,is_DR_20170524173222,is_SH_20170524173222,is_XL_20170524173222,in_analysis_20170524173222 -d ./example4_20170524173222_varselect.db  -b varselect_variants Finish
+Wed May 24 20:33:25 2017	thread for vsl_annot finish
+Wed May 24 20:33:25 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/create_view_for_varselect.pl -j 20170524173222 -d ./example4_20170524173222_varselect.db

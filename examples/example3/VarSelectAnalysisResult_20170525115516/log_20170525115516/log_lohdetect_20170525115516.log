@@ -1,0 +1,6 @@
+Thu May 25 11:55:24 2017	LOH detecting start
+Thu May 25 11:55:26 2017	cat ./VarSelectAnalysisResult_20170525115516/example2_20170525112231_varselect_loh.txt | bgzip -f -c -@ 16 > ./VarSelectAnalysisResult_20170525115516/example2_20170525112231_varselect_loh.txt.gz
+Thu May 25 11:55:26 2017	tabix -f -s 1 -b 2 -e 2 -c # ./VarSelectAnalysisResult_20170525115516/example2_20170525112231_varselect_loh.txt.gz 
+Thu May 25 11:55:26 2017	zcat ./VarSelectAnalysisResult_20170525115516/unaff_gt_freq_20170525115516.vcf.gz | vcf-annotate -a ./VarSelectAnalysisResult_20170525115516/example2_20170525112231_varselect_loh.txt.gz  -c CHROM,POS,REF,ALT,INFO/is_LOH,INFO/LOH_samples -d key=INFO,ID=is_LOH,Number=1,Type=Integer,Description='is_LOH annotation provided by VarSelect'  -d key=INFO,ID=LOH_samples,Number=.,Type=string,Description='provided by VarSelect'  2> ./VarSelectAnalysisResult_20170525115516/log_20170525115516/stderr_vcfannotate_20170525115516.log | bgzip -c > ./VarSelectAnalysisResult_20170525115516/example2_20170525112231_varselect_loh.vcf.gz 
+Thu May 25 11:55:29 2017	tabix -p vcf ./VarSelectAnalysisResult_20170525115516/example2_20170525112231_varselect_loh.vcf.gz
+Thu May 25 11:55:29 2017	LOH detecting finish

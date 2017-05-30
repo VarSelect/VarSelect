@@ -1,0 +1,32 @@
+Wed May 24 17:29:46 2017	VS annot start
+Wed May 24 17:29:46 2017	Jobid: 20170524172945
+Wed May 24 17:29:46 2017	-n 4 -p example1.ped -d ./example1_20170524172945_varselect.db -v example1.txt -j 20170524172945
+Wed May 24 17:29:46 2017	Load and check VCF file list start
+Wed May 24 17:29:46 2017	Clean variants with multiple line or wrong sample format values: NA12878_chr22.vcf.gz
+Wed May 24 17:29:46 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524172945 -i NA12878_chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12878_chr22.vcf.gz 
+Wed May 24 17:30:16 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12878_chr22.vcf.gz 
+Wed May 24 17:30:16 2017	Clean variants with multiple line or wrong sample format values: NA12891_chr22.vcf.gz
+Wed May 24 17:30:16 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524172945 -i NA12891_chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12891_chr22.vcf.gz 
+Wed May 24 17:30:52 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12891_chr22.vcf.gz 
+Wed May 24 17:30:52 2017	Clean variants with multiple line or wrong sample format values: NA12892_chr22.vcf.gz
+Wed May 24 17:30:52 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524172945 -i NA12892_chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12892_chr22.vcf.gz 
+Wed May 24 17:31:31 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12892_chr22.vcf.gz 
+Wed May 24 17:31:34 2017	Load and check VCF file list finish
+Wed May 24 17:31:34 2017	Load ped file start
+Wed May 24 17:31:34 2017	Output sex infomation of Sample to ./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_sample_sex.txt
+Wed May 24 17:31:34 2017	Load ped file finish
+Wed May 24 17:31:34 2017	Check and concat vcf files from same sample start.
+Wed May 24 17:31:34 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12892_chr22.vcf.gz 
+Wed May 24 17:31:36 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12891_chr22.vcf.gz 
+Wed May 24 17:31:38 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12878_chr22.vcf.gz 
+Wed May 24 17:31:38 2017	Check and concat vcf files from same sample finish.
+Wed May 24 17:31:38 2017	Merge vcf files from different samples start.
+Wed May 24 17:31:38 2017	vcf-merge -R '0/0' ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12892_chr22.vcf.gz ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12891_chr22.vcf.gz ./VarSelectAnalysisResult_20170524172945/work_20170524172945/NA12878_chr22.vcf.gz 2> ./VarSelectAnalysisResult_20170524172945/log_20170524172945/stderr_vcfmerge.log |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524172945/work_20170524172945/example1_20170524172945_varselect_merged.vcf.gz
+Wed May 24 17:37:57 2017	Merge vcf files from different samples finish.
+Wed May 24 17:37:57 2017	Fixing ploidy of sex chromosome start
+Wed May 24 17:37:57 2017	zcat ./VarSelectAnalysisResult_20170524172945/work_20170524172945/example1_20170524172945_varselect_merged.vcf.gz |vcf-fix-ploidy --samples ./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_sample_sex.txt >./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_cleanXY.vcf 2> ./VarSelectAnalysisResult_20170524172945/log_20170524172945/stderr_fixploidy.log
+Wed May 24 17:38:04 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_cleanXY.vcf > ./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_cleanXY.vcf.gz 2>> ./VarSelectAnalysisResult_20170524172945/log_20170524172945/stderr_fixploidy.log
+Wed May 24 17:38:14 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_cleanXY.vcf.gz 
+Wed May 24 17:38:16 2017	Fixing ploidy of sex chromosome finish
+Wed May 24 17:38:16 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsann2.pl -v ./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_cleanXY.vcf.gz -p example1.ped -j 20170524172945 -d ./example1_20170524172945_varselect.db -n 4 2>./VarSelectAnalysisResult_20170524172945/log_20170524172945/stderr_vsann2_20170524172945.log
+Wed May 24 20:00:18 2017	VSannot finish

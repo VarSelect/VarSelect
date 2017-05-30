@@ -1,0 +1,6 @@
+Thu May 25 14:57:51 2017	VarSelect Start
+Thu May 25 14:57:51 2017	Jobid: 20170525145751
+Thu May 25 14:57:51 2017	VarSelect compare start
+Thu May 25 14:57:51 2017	-c 2 -a 20170525115516 -b 20170525121033 -d example2_20170525112231_varselect.db
+Thu May 25 14:57:51 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vs_compare.pl  -a 20170525115516  -b 20170525121033  -c 2  -d example2_20170525112231_varselect.db  -j 20170525145751 
+Thu May 25 14:58:52 2017	VarSelect compare finish

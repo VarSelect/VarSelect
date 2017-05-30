@@ -1,0 +1,6 @@
+NA12878_freebayes F
+NA12878_gatk-haplotype F
+NA12891_freebayes M
+NA12891_gatk-haplotype M
+NA12892_freebayes F
+NA12892_gatk-haplotype F

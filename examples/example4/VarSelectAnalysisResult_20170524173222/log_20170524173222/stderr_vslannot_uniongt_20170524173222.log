@@ -1,0 +1,3 @@
+ALTER table varselect_variants ADD COLUMN 'genotype_union_NA12878_20170524173222' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'genotype_union_NA12891_20170524173222' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'genotype_union_NA12892_20170524173222' text DEFAULT NULL 

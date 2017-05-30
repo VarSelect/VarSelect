@@ -1,0 +1,1 @@
+ALTER table varselect_variants ADD COLUMN 'pathway' text DEFAULT NULL 

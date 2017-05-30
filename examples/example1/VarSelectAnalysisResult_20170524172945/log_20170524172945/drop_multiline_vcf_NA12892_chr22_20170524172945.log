@@ -1,0 +1,4 @@
+FILE	NA12892_chr22.vcf.gz
+LOG	./VarSelectAnalysisResult_20170524172945/log_20170524172945/drop_multiline_vcf_NA12892_chr22_20170524172945.log
+==========
+STAT	all	67613	100.00 %

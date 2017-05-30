@@ -1,0 +1,240 @@
+
+NOTICE: Running with system command <convert2annovar.pl -includeinfo -allsample -withfreq -format vcf4 ./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_cleanXY.vcf.gz > ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput>
+NOTICE: Finished reading 98142 lines from VCF file
+NOTICE: A total of 97918 locus in VCF file passed QC threshold, representing 81483 SNPs (55659 transitions and 25824 transversions) and 19423 indels/substitutions
+NOTICE: Finished writing allele frequencies based on 488898 SNP genotypes (333954 transitions and 154944 transversions) and 116538 indels/substitutions for 6 samples
+WARNING: 9 invalid reference alleles found in input file
+
+NOTICE: Running with system command </peterhouse/tools/annovar//table_annovar.pl ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 -remove -protocol mitimpact24,exac03nonpsych,exac03,dbscsnv11,clinvar_20160302,cosmic70,fathmm,esp6500siv2_all,popfreq_all_20150413,gme,avsift,nci60,avsnp147,hrcr1,gerp++gt2,1000g2015aug_all,wgRna,cg69,kaviar_20150923,popfreq_max_20150413,exac03nontcga,tfbsConsSites,gwasCatalog,icgc21,phastConsElements46way -operation f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,r,f,f,f,f,r,r,f,r -otherinfo -nastring .>
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=mitimpact24
+NOTICE: Finished reading 75 column headers for '-dbtype mitimpact24'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype mitimpact24 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype mitimpact24 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_mitimpact24_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_mitimpact24_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 13 and the number of bins to be scanned is 0
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_mitimpact24.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=exac03nonpsych
+NOTICE: Finished reading 8 column headers for '-dbtype exac03nonpsych'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype exac03nonpsych -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype exac03nonpsych is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_exac03nonpsych_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_exac03nonpsych_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 747510 and the number of bins to be scanned is 2444
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_exac03nonpsych.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=exac03
+NOTICE: Finished reading 8 column headers for '-dbtype exac03'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype exac03 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype exac03 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_exac03_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_exac03_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 749886 and the number of bins to be scanned is 2451
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_exac03.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=dbscsnv11
+NOTICE: Finished reading 2 column headers for '-dbtype dbscsnv11'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype dbscsnv11 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype dbscsnv11 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_dbscsnv11_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_dbscsnv11_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+WARNING: Your index file /peterhouse/tools/annovar/humandb/hg19_dbscsnv11.txt.idx is out of date and will not be used. ANNOVAR can still generate correct results without index file.
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_dbscsnv11.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=clinvar_20160302
+NOTICE: Finished reading 5 column headers for '-dbtype clinvar_20160302'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype clinvar_20160302 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype clinvar_20160302 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_clinvar_20160302_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_clinvar_20160302_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 22881 and the number of bins to be scanned is 310
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_clinvar_20160302.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=cosmic70
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype cosmic70 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: the --dbtype cosmic70 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_cosmic70_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_cosmic70_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 232279 and the number of bins to be scanned is 3030
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_cosmic70.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=fathmm
+NOTICE: Finished reading 2 column headers for '-dbtype fathmm'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype fathmm -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype fathmm is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_fathmm_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_fathmm_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 28581845 and the number of bins to be scanned is 71578
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_fathmm.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=esp6500siv2_all
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype esp6500siv2_all -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: the --dbtype esp6500siv2_all is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_esp6500siv2_all_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_esp6500siv2_all_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 594771 and the number of bins to be scanned is 1904
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_esp6500siv2_all.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=popfreq_all_20150413
+NOTICE: Finished reading 19 column headers for '-dbtype popfreq_all_20150413'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype popfreq_all_20150413 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype popfreq_all_20150413 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_popfreq_all_20150413_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_popfreq_all_20150413_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 26410909 and the number of bins to be scanned is 69915
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_popfreq_all_20150413.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=gme
+NOTICE: Finished reading 8 column headers for '-dbtype gme'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype gme -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype gme is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_gme_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_gme_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 146347 and the number of bins to be scanned is 2385
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_gme.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=avsift
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype avsift -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -sift_threshold 0>
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_avsift_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_avsift_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 192662 and the number of bins to be scanned is 3215
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_avsift.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=nci60
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype nci60 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: the --dbtype nci60 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_nci60_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_nci60_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 81308 and the number of bins to be scanned is 1387
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_nci60.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=avsnp147
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype avsnp147 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_avsnp147_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_avsnp147_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 27868332 and the number of bins to be scanned is 71458
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_avsnp147.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=hrcr1
+NOTICE: Finished reading 6 column headers for '-dbtype hrcr1'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype hrcr1 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype hrcr1 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_hrcr1_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_hrcr1_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 19819848 and the number of bins to be scanned is 61582
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_hrcr1.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=gerp++gt2
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype gerp++gt2 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: the --dbtype gerp++gt2 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_gerp++gt2_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_gerp++gt2_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 1978403 and the number of bins to be scanned is 16636
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_gerp++gt2.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=1000g2015aug_all
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype 1000g2015aug_all -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_ALL.sites.2015_08_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_ALL.sites.2015_08_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 2824642 and the number of bins to be scanned is 27544
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_ALL.sites.2015_08.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=r protocol=wgRna
+
+NOTICE: Running with system command <annotate_variation.pl -regionanno -dbtype wgRna -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: Output file is written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_wgRna
+NOTICE: Reading annotation database /peterhouse/tools/annovar/humandb/hg19_wgRna.txt ... Done with 1341 regions
+NOTICE: Finished region-based annotation on 100915 genetic variants
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=cg69
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype cg69 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: the --dbtype cg69 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_cg69_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_cg69_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 2789339 and the number of bins to be scanned is 26946
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_cg69.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=kaviar_20150923
+NOTICE: Finished reading 3 column headers for '-dbtype kaviar_20150923'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype kaviar_20150923 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype kaviar_20150923 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_kaviar_20150923_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_kaviar_20150923_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 28259366 and the number of bins to be scanned is 71562
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_kaviar_20150923.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=popfreq_max_20150413
+NOTICE: Finished reading 1 column headers for '-dbtype popfreq_max_20150413'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype popfreq_max_20150413 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype popfreq_max_20150413 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_popfreq_max_20150413_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_popfreq_max_20150413_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 26410909 and the number of bins to be scanned is 69915
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_popfreq_max_20150413.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=exac03nontcga
+NOTICE: Finished reading 8 column headers for '-dbtype exac03nontcga'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype exac03nontcga -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype exac03nontcga is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_exac03nontcga_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_exac03nontcga_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 745709 and the number of bins to be scanned is 2440
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_exac03nontcga.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=r protocol=tfbsConsSites
+
+NOTICE: Running with system command <annotate_variation.pl -regionanno -dbtype tfbsConsSites -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: Output file is written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_tfbsConsSites
+NOTICE: Reading annotation database /peterhouse/tools/annovar/humandb/hg19_tfbsConsSites.txt ... Done with 5797266 regions
+NOTICE: Finished region-based annotation on 100915 genetic variants
+-----------------------------------------------------------------
+NOTICE: Processing operation=r protocol=gwasCatalog
+
+NOTICE: Running with system command <annotate_variation.pl -regionanno -dbtype gwasCatalog -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: Output file is written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_gwasCatalog
+NOTICE: Reading annotation database /peterhouse/tools/annovar/humandb/hg19_gwasCatalog.txt ... Done with 36241 regions
+NOTICE: Finished region-based annotation on 100915 genetic variants
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=icgc21
+NOTICE: Finished reading 2 column headers for '-dbtype icgc21'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype icgc21 -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb -otherinfo>
+NOTICE: the --dbtype icgc21 is assumed to be in generic ANNOVAR database format
+NOTICE: Variants matching filtering criteria are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_icgc21_dropped, other variants are written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_icgc21_filtered
+NOTICE: Processing next batch with 100913 unique variants in 100915 input lines
+NOTICE: Database index loaded. Total number of bins is 2831634 and the number of bins to be scanned is 27533
+NOTICE: Scanning filter database /peterhouse/tools/annovar/humandb/hg19_icgc21.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=r protocol=phastConsElements46way
+
+NOTICE: Running with system command <annotate_variation.pl -regionanno -dbtype phastConsElements46way -buildver hg19 -outfile ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334 ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.avinput /peterhouse/tools/annovar//humandb>
+NOTICE: Output file is written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_phastConsElements46way
+NOTICE: Reading annotation database /peterhouse/tools/annovar/humandb/hg19_phastConsElements46way.txt ... Done with 5163775 regions
+NOTICE: Finished region-based annotation on 100915 genetic variants
+-----------------------------------------------------------------
+NOTICE: Multianno output file is written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_multianno.txt
+NOTICE: Reading from ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_multianno.txt
+-----------------------------------------------------------------
+NOTICE: VCF output is written to ./VarSelectAnalysisResult_20170524173222/runannovar_20170524175334.hg19_multianno.vcf

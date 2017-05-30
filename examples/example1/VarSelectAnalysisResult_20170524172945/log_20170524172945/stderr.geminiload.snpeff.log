@@ -1,0 +1,30 @@
+CADD scores are being loaded (to skip use:--skip-cadd).
+GERP per bp is being loaded (to skip use:--skip-gerp-bp).
+
+warning: variant with multiple alternate alleles found.
+         in order to reduce the number of false negatives
+         we recommend to split multiple alts. see:                 http://gemini.readthedocs.org/en/latest/content/preprocessing.html#preprocess
+
+warning: variant with multiple alternate alleles found.
+         in order to reduce the number of false negatives
+         we recommend to split multiple alts. see:                 http://gemini.readthedocs.org/en/latest/content/preprocessing.html#preprocess
+
+warning: variant with multiple alternate alleles found.
+         in order to reduce the number of false negatives
+         we recommend to split multiple alts. see:                 http://gemini.readthedocs.org/en/latest/content/preprocessing.html#preprocess
+
+warning: variant with multiple alternate alleles found.
+         in order to reduce the number of false negatives
+         we recommend to split multiple alts. see:                 http://gemini.readthedocs.org/en/latest/content/preprocessing.html#preprocess
+pid 4598: 9999 variants processed.
+pid 4607: 9999 variants processed.
+pid 4666: 9999 variants processed.
+pid 4604: 9999 variants processed.
+pid 4666: 19999 variants processed.
+pid 4607: 19999 variants processed.
+pid 4598: 19999 variants processed.
+pid 4607: 23285 variants processed.
+pid 4666: 23286 variants processed.
+pid 4604: 19999 variants processed.
+pid 4598: 23285 variants processed.
+pid 4604: 23285 variants processed.

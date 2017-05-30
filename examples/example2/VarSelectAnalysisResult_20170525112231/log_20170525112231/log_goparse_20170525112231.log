@@ -1,0 +1,11 @@
+Thu May 25 11:36:03 2017	Running GO_parse.pl start
+Thu May 25 11:36:03 2017	Output header to ./VarSelectAnalysisResult_20170525112231/work_20170525112231/go_header_20170525112231.txt
+Thu May 25 11:36:03 2017	Loading mapping of Ensembl transcript to database /peterhouse/lchen/csardas/varselect_dev/db/ENST2GO.hashref start
+Thu May 25 11:36:03 2017	Loading mapping of Ensembl transcript to database /peterhouse/lchen/csardas/varselect_dev/db/ENST2GO.hashref finish
+Thu May 25 11:36:03 2017	sqlite3 ./example2_20170525112231_varselect.db 'select chrom,start+1,ref,alt,transcript from vep_variants' 
+Thu May 25 11:36:03 2017	Extracting transcript infomation from ./example2_20170525112231_varselect.db
+Thu May 25 11:36:03 2017	vcf-sort ./VarSelectAnalysisResult_20170525112231/transcript_go_20170525112231.txt |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170525112231/transcript_go_20170525112231.txt.gz
+Thu May 25 11:36:05 2017	tabix -s 1 -b 2 -e 2 -f ./VarSelectAnalysisResult_20170525112231/transcript_go_20170525112231.txt.gz 
+Thu May 25 11:36:05 2017	zcat ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_cleanXY.vcf.gz | vcf-annotate  -a ./VarSelectAnalysisResult_20170525112231/transcript_go_20170525112231.txt.gz  -c CHROM,POS,REF,ALT,INFO/GO_Biological_Process,INFO/GO_Cellular_Component,INFO/GO_Molecular_Function -d key=INFO,ID=GO_Biological_Process,Number=.Type=String,Description='GO_Biological_Process'  -d key=INFO,ID=GO_Cellular_Component,Number=.Type=String,Description='GO_Cellular_Component'  -d key=INFO,ID=GO_Molecular_Function,Number=.Type=String,Description='GO_Molecular_Function'  2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vannot_go_20170525112231.log  | bgzip -c > ./VarSelectAnalysisResult_20170525112231/VsResult_20170525112231_go.vcf.gz 
+Thu May 25 11:36:07 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/VsResult_20170525112231_go.vcf.gz 
+Thu May 25 11:36:07 2017	Running GO_parse.pl finish

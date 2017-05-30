@@ -1,0 +1,1 @@
+ALTER table varselect_variants ADD COLUMN 'in_analysis_20170525145751' boolean DEFAULT NULL 

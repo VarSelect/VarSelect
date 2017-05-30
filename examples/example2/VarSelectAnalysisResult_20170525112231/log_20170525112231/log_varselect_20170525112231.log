@@ -1,0 +1,91 @@
+Thu May 25 11:22:31 2017	VarSelect Start
+Thu May 25 11:22:31 2017	Version: 0.9.6 (20170524)-dev
+Thu May 25 11:22:31 2017	Jobid: 20170525112231
+Thu May 25 11:22:31 2017	-p example2.ped -m paired -v example2.txt
+Thu May 25 11:22:31 2017	VarSelect annotate start
+Thu May 25 11:22:31 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vs_annotate.pl  -v example2.txt  -p example2.ped  -j 20170525112231  -n 16  -d ./example2_20170525112231_varselect.db  2>&1 | tee ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vs_annotate.20170525112231.log 
+Thu May 25 11:22:31 2017	VS annot start
+Thu May 25 11:22:31 2017	Jobid: 20170525112231
+Thu May 25 11:22:31 2017	-n 16 -p example2.ped -d ./example2_20170525112231_varselect.db -v example2.txt -j 20170525112231
+Thu May 25 11:22:31 2017	Load and check VCF file list start
+Thu May 25 11:22:31 2017	Clean variants with multiple line or wrong sample format values: blood-gatk-chr22.vcf.gz
+Thu May 25 11:22:31 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170525112231 -i blood-gatk-chr22.vcf.gz |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170525112231/work_20170525112231/blood-gatk-chr22.vcf.gz 
+Thu May 25 11:22:34 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/work_20170525112231/blood-gatk-chr22.vcf.gz 
+Thu May 25 11:22:34 2017	Clean variants with multiple line or wrong sample format values: ccRCC-gatk-chr22.vcf.gz
+Thu May 25 11:22:34 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170525112231 -i ccRCC-gatk-chr22.vcf.gz |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170525112231/work_20170525112231/ccRCC-gatk-chr22.vcf.gz 
+Thu May 25 11:22:36 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/work_20170525112231/ccRCC-gatk-chr22.vcf.gz 
+Thu May 25 11:22:36 2017	Clean variants with multiple line or wrong sample format values: meta-lung-gatk-chr22.vcf.gz
+Thu May 25 11:22:36 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170525112231 -i meta-lung-gatk-chr22.vcf.gz |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170525112231/work_20170525112231/meta-lung-gatk-chr22.vcf.gz 
+Thu May 25 11:22:39 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/work_20170525112231/meta-lung-gatk-chr22.vcf.gz 
+Thu May 25 11:22:39 2017	Load and check VCF file list finish
+Thu May 25 11:22:39 2017	Load ped file start
+Thu May 25 11:22:39 2017	Output sex infomation of Sample to ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_sample_sex.txt
+Thu May 25 11:22:39 2017	Load ped file finish
+Thu May 25 11:22:39 2017	Check and concat vcf files from same sample start.
+Thu May 25 11:22:39 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/work_20170525112231/ccRCC-gatk-chr22.vcf.gz 
+Thu May 25 11:22:39 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/work_20170525112231/blood-gatk-chr22.vcf.gz 
+Thu May 25 11:22:39 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/work_20170525112231/meta-lung-gatk-chr22.vcf.gz 
+Thu May 25 11:22:40 2017	Check and concat vcf files from same sample finish.
+Thu May 25 11:22:40 2017	Merge vcf files from different samples start.
+Thu May 25 11:22:40 2017	vcf-merge -R '0/0' ./VarSelectAnalysisResult_20170525112231/work_20170525112231/ccRCC-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170525112231/work_20170525112231/blood-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170525112231/work_20170525112231/meta-lung-gatk-chr22.vcf.gz 2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vcfmerge.log |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170525112231/work_20170525112231/example2_20170525112231_varselect_merged.vcf.gz
+Thu May 25 11:22:55 2017	Merge vcf files from different samples finish.
+Thu May 25 11:22:55 2017	Fixing ploidy of sex chromosome start
+Thu May 25 11:22:55 2017	zcat ./VarSelectAnalysisResult_20170525112231/work_20170525112231/example2_20170525112231_varselect_merged.vcf.gz |vcf-fix-ploidy --samples ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_sample_sex.txt >./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_cleanXY.vcf 2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_fixploidy.log
+Thu May 25 11:22:55 2017	bgzip -@ 16 -c ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_cleanXY.vcf > ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_cleanXY.vcf.gz 2>> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_fixploidy.log
+Thu May 25 11:22:55 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_cleanXY.vcf.gz 
+Thu May 25 11:22:55 2017	Fixing ploidy of sex chromosome finish
+Thu May 25 11:22:55 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsann2.pl -v ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_cleanXY.vcf.gz -p example2.ped -j 20170525112231 -d ./example2_20170525112231_varselect.db -n 16 2>./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vsann2_20170525112231.log
+Thu May 25 11:36:14 2017	VSannot finish
+Thu May 25 11:36:14 2017	VarSelect annotate finish
+Thu May 25 11:36:14 2017	VarSelect analysis start
+Thu May 25 11:36:14 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vs_analysis.pl  -j 20170525112231  -d ./example2_20170525112231_varselect.db  -p example2.ped  -m paired  2>&1 |tee ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vs_analysis.20170525112231.log 
+Thu May 25 11:36:14 2017	VSanlz start
+Thu May 25 11:36:14 2017	Jobid: 20170525112231
+Thu May 25 11:36:14 2017	-p example2.ped -m paired -d ./example2_20170525112231_varselect.db -j 20170525112231
+Thu May 25 11:36:14 2017	tabix -s 1 -b 2 -e 2 -c # -f ./VarSelectAnalysisResult_20170525112231/for_analysis_20170525112231.vcf.gz 
+Thu May 25 11:36:14 2017	Threads running start
+Thu May 25 11:36:14 2017	Genotype frequency calculating start
+Thu May 25 11:36:14 2017	Loading genotype frequency of each sample, start.
+Thu May 25 11:36:17 2017	Loading genotype frequency of each sample, finish.
+Thu May 25 11:36:17 2017	bgzip -@ 16 -c ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.txt > ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.txt.gz
+Thu May 25 11:36:17 2017	tabix -s 1 -b 2 -e 2 -c # -f ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.txt.gz 
+Thu May 25 11:36:17 2017	bgzip -@ 16 -c ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.txt > ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.txt.gz
+Thu May 25 11:36:17 2017	tabix -s 1 -b 2 -e 2 -c # -f ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.txt.gz 
+Thu May 25 11:36:17 2017	vcf-annot affected vgt start
+Thu May 25 11:36:17 2017	zcat ./VarSelectAnalysisResult_20170525112231/for_analysis_20170525112231.vcf.gz| vcf-annotate  -a ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.txt.gz  -c CHROM,POS,REF,ALT,INFO/affected_vgt,INFO/affected_vgfreq,INFO/affected_altfreqsum -d key=INFO,ID=affected_vgt,Number=.,Type=String,Description='Variant genotype in affected samples'  -d key=INFO,ID=affected_vgfreq,Number=.,Type=String,Description='Variant genotype frequency in affected samples'  -d key=INFO,ID=affected_altfreqsum,Number=.,Type=Float,Description='Summary of affected-alt-frequency variant genotype in affected samples'  2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vannot_gtfreq_20170525112231.log  | bgzip -c > ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.vcf.gz 
+Thu May 25 11:36:19 2017	vcf-annot affected vgt finish
+Thu May 25 11:36:19 2017	enqueue /peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.vcf.gz  -e affected_vgt,affected_vgfreq,affected_altfreqsum -t text,text,float -c affected_vgt_20170525112231,affected_vgfreq_20170525112231,affected_altfreqsum_20170525112231 -d ./example2_20170525112231_varselect.db  -b varselect_variants 
+Thu May 25 11:36:19 2017	vcf-annot un-affected vgt start
+Thu May 25 11:36:19 2017	zcat ./VarSelectAnalysisResult_20170525112231/for_analysis_20170525112231.vcf.gz| vcf-annotate  -a ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.txt.gz  -c CHROM,POS,REF,ALT,INFO/unaffected_vgt,INFO/unaffected_vgfreq,INFO/unaffected_altfreqsum -d key=INFO,ID=unaffected_vgt,Number=.,Type=String,Description='variant genotype in unaffected samples'  -d key=INFO,ID=unaffected_vgfreq,Number=.,Type=String,Description='Variant genotype frequency in unaffected samples'  -d key=INFO,ID=unaffected_altfreqsum,Number=.,Type=Float,Description='Summary of unaffected-alt-frequency variant genotype in affected samples'  2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vannot_gtfreq_20170525112231.log  | bgzip -c > ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.vcf.gz 
+Thu May 25 11:36:14 2017	thread for vsl_annot start
+Thu May 25 11:36:19 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.vcf.gz  -e affected_vgt,affected_vgfreq,affected_altfreqsum -t text,text,float -c affected_vgt_20170525112231,affected_vgfreq_20170525112231,affected_altfreqsum_20170525112231 -d ./example2_20170525112231_varselect.db  -b varselect_variants 
+Thu May 25 11:36:21 2017	vcf-annot un-affected vgt finish
+Thu May 25 11:36:21 2017	enqueue /peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract -f ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.vcf.gz -e unaffected_vgt,unaffected_vgfreq,unaffected_altfreqsum -t text,text,float -c unaffected_vgt_20170525112231,unaffected_vgfreq_20170525112231,unaffected_altfreqsum_20170525112231 -d ./example2_20170525112231_varselect.db  -b varselect_variants
+Thu May 25 11:36:21 2017	Genotype frequency calculating finish
+Thu May 25 11:36:21 2017	Paired case/control workflow start
+Thu May 25 11:36:21 2017	LOH detect start
+Thu May 25 11:36:21 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/loh_detector.pl -j 20170525112231  -i ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.vcf.gz  -v ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.vcf.gz  -o ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.txt  -p example2.ped  -d ./example2_20170525112231_varselect.db  -n 16 
+Thu May 25 11:36:24 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170525112231/aff_gt_freq_20170525112231.vcf.gz  -e affected_vgt,affected_vgfreq,affected_altfreqsum -t text,text,float -c affected_vgt_20170525112231,affected_vgfreq_20170525112231,affected_altfreqsum_20170525112231 -d ./example2_20170525112231_varselect.db  -b varselect_variants  Finish
+Thu May 25 11:36:24 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract -f ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.vcf.gz -e unaffected_vgt,unaffected_vgfreq,unaffected_altfreqsum -t text,text,float -c unaffected_vgt_20170525112231,unaffected_vgfreq_20170525112231,unaffected_altfreqsum_20170525112231 -d ./example2_20170525112231_varselect.db  -b varselect_variants
+Thu May 25 11:36:21 2017	LOH detecting start
+Thu May 25 11:36:24 2017	cat ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.txt | bgzip -f -c -@ 16 > ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.txt.gz
+Thu May 25 11:36:24 2017	tabix -f -s 1 -b 2 -e 2 -c # ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.txt.gz 
+Thu May 25 11:36:24 2017	zcat ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.vcf.gz | vcf-annotate -a ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.txt.gz  -c CHROM,POS,REF,ALT,INFO/is_LOH,INFO/LOH_samples -d key=INFO,ID=is_LOH,Number=1,Type=Integer,Description='is_LOH annotation provided by VarSelect'  -d key=INFO,ID=LOH_samples,Number=.,Type=string,Description='provided by VarSelect'  2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vcfannotate_20170525112231.log | bgzip -c > ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.vcf.gz 
+Thu May 25 11:36:26 2017	tabix -p vcf ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.vcf.gz
+Thu May 25 11:36:26 2017	LOH detecting finish
+Thu May 25 11:36:26 2017	LOH detect finish
+Thu May 25 11:36:26 2017	Paired sample denovo variants detect start
+Thu May 25 11:36:26 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/paired_denovo_detector.pl  -i ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_loh.vcf.gz  -o ./VarSelectAnalysisResult_20170525112231/is_denovo_20170525112231.txt  -v ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_denovo.vcf.gz  -p example2.ped  -j 20170525112231  -d ./example2_20170525112231_varselect.db  -n 16 
+Thu May 25 11:36:31 2017	Paired sample denovo variants detect finish
+Thu May 25 11:36:31 2017	grep '^#' ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.txt.gz.tmp > ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.txt.gz.tmp.header ; grep -v '^#' ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.txt.gz.tmp | sort -V | cat ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.txt.gz.tmp.header - | bgzip -c > ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.txt.gz
+Thu May 25 11:36:31 2017	zcat ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_denovo.vcf.gz | vcf-annotate  -a ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.txt.gz  -c CHROM,POS,REF,ALT,INFO/in_analysis_20170525112231 -d key=INFO,ID=in_analysis_20170525112231,Number=1,Type=Integer,Description='in_analysis_20170525112231' 2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vannot_inanalysis_20170525112231.log  |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.vcf.gz 
+Thu May 25 11:36:30 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract -f ./VarSelectAnalysisResult_20170525112231/unaff_gt_freq_20170525112231.vcf.gz -e unaffected_vgt,unaffected_vgfreq,unaffected_altfreqsum -t text,text,float -c unaffected_vgt_20170525112231,unaffected_vgfreq_20170525112231,unaffected_altfreqsum_20170525112231 -d ./example2_20170525112231_varselect.db  -b varselect_variants Finish
+Thu May 25 11:36:33 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.vcf.gz  -e is_denovo,denovo_samples,is_LOH,LOH_samples,in_analysis_20170525112231 -t boolean,text,boolean,text,boolean -c is_denovo_20170525112231,denovo_samples_20170525112231,is_LOH_20170525112231,LOH_samples_20170525112231,in_analysis_20170525112231 -b varselect_variants  -d ./example2_20170525112231_varselect.db
+Thu May 25 11:36:38 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.vcf.gz  -e is_denovo,denovo_samples,is_LOH,LOH_samples,in_analysis_20170525112231 -t boolean,text,boolean,text,boolean -c is_denovo_20170525112231,denovo_samples_20170525112231,is_LOH_20170525112231,LOH_samples_20170525112231,in_analysis_20170525112231 -b varselect_variants  -d ./example2_20170525112231_varselect.db Finish
+Thu May 25 11:36:38 2017	thread for vsl_annot finish
+Thu May 25 11:36:33 2017	enqueue /peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl -a extract  -f ./VarSelectAnalysisResult_20170525112231/inanalysis_20170525112231.vcf.gz  -e is_denovo,denovo_samples,is_LOH,LOH_samples,in_analysis_20170525112231 -t boolean,text,boolean,text,boolean -c is_denovo_20170525112231,denovo_samples_20170525112231,is_LOH_20170525112231,LOH_samples_20170525112231,in_analysis_20170525112231 -b varselect_variants  -d ./example2_20170525112231_varselect.db
+Thu May 25 11:36:33 2017	Paired case/control workflow finish
+Thu May 25 11:36:33 2017	Thread finish
+Thu May 25 11:36:38 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/create_view_for_varselect.pl -j 20170525112231 -d ./example2_20170525112231_varselect.db
+Thu May 25 11:36:39 2017	VSanlz finish
+Thu May 25 11:36:39 2017	VarSelect analysis finish

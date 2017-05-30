@@ -1,0 +1,6 @@
+ALTER table variants ADD COLUMN 'AF' float DEFAULT NULL 
+ALTER table variants ADD COLUMN 'BaseQRankSum' float DEFAULT NULL 
+ALTER table variants ADD COLUMN 'FS' float DEFAULT NULL 
+ALTER table variants ADD COLUMN 'MQRankSum' float DEFAULT NULL 
+ALTER table variants ADD COLUMN 'ReadPosRankSum' float DEFAULT NULL 
+ALTER table variants ADD COLUMN 'SOR' float DEFAULT NULL 

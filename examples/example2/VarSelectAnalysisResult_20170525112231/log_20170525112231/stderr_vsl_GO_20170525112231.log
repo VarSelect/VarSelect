@@ -1,0 +1,3 @@
+ALTER table varselect_variants ADD COLUMN 'GO_Biological_Process' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'GO_Cellular_Component' text DEFAULT NULL 
+ALTER table varselect_variants ADD COLUMN 'GO_Molecular_Function' text DEFAULT NULL 

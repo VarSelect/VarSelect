@@ -1,0 +1,7 @@
+Wed May 24 19:38:40 2017	Generate VCF header for pathways data
+Wed May 24 19:38:40 2017	gemini pathways ./example1_20170524172945_varselect.db 
+Wed May 24 19:45:28 2017	13006 variants with pathways annotation
+Wed May 24 19:45:28 2017	vcf-sort ./VarSelectAnalysisResult_20170524172945/gemini_pathways.txt |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170524172945/gemini_pathways.txt.gz
+Wed May 24 19:45:30 2017	tabix -s 1 -b 2 -e 2 -f ./VarSelectAnalysisResult_20170524172945/gemini_pathways.txt.gz 
+Wed May 24 19:45:31 2017	zcat ./VarSelectAnalysisResult_20170524172945/example1_20170524172945_varselect_cleanXY.vcf.gz | vcf-annotate  -a ./VarSelectAnalysisResult_20170524172945/gemini_pathways.txt.gz  -c CHROM,POS,REF,ALT,INFO/pathway -d key=INFO,ID=pathway,Number=.,Type=String,Description='gemini pathways'  2> ./VarSelectAnalysisResult_20170524172945/log_20170524172945/stderr_vannot_pathway_20170524172945.log |bgzip -@ 16 -c > ./VarSelectAnalysisResult_20170524172945/VsResult_20170524172945_pathway.vcf.gz 
+Wed May 24 19:45:43 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524172945/VsResult_20170524172945_pathway.vcf.gz 

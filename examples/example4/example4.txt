@@ -1,0 +1,6 @@
+NA12878,NA12878-gatk-chr22.vcf.gz,gatk-haplotype
+NA12891,NA12891-gatk-chr22.vcf.gz,gatk-haplotype
+NA12892,NA12892-gatk-chr22.vcf.gz,gatk-haplotype
+NA12878,NA12878-freebayes-chr22.vcf.gz,freebayes
+NA12891,NA12891-freebayes-chr22.vcf.gz,freebayes
+NA12892,NA12892-freebayes-chr22.vcf.gz,freebayes

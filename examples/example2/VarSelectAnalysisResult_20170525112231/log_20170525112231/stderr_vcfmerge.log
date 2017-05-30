@@ -1,0 +1,3 @@
+Using column name 'ccRCC' for ./VarSelectAnalysisResult_20170525112231/work_20170525112231/ccRCC-gatk-chr22.vcf.gz:ccRCC
+Using column name 'blood' for ./VarSelectAnalysisResult_20170525112231/work_20170525112231/blood-gatk-chr22.vcf.gz:blood
+Using column name 'meta-lung' for ./VarSelectAnalysisResult_20170525112231/work_20170525112231/meta-lung-gatk-chr22.vcf.gz:meta-lung

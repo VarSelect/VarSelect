@@ -1,0 +1,141 @@
+Thu May 25 11:22:31 2017	VS annot start
+Thu May 25 11:22:31 2017	Jobid: 20170525112231
+Thu May 25 11:22:31 2017	-n 16 -p example2.ped -d ./example2_20170525112231_varselect.db -v example2.txt -j 20170525112231
+Thu May 25 11:22:31 2017	Load and check VCF file list start
+Thu May 25 11:22:31 2017	Clean variants with multiple line or wrong sample format values: blood-gatk-chr22.vcf.gz
+Thu May 25 11:22:34 2017	Clean variants with multiple line or wrong sample format values: ccRCC-gatk-chr22.vcf.gz
+Thu May 25 11:22:36 2017	Clean variants with multiple line or wrong sample format values: meta-lung-gatk-chr22.vcf.gz
+Thu May 25 11:22:39 2017	Load and check VCF file list finish
+Thu May 25 11:22:39 2017	Load ped file start
+Thu May 25 11:22:39 2017	Output sex infomation of Sample to ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_sample_sex.txt
+Thu May 25 11:22:39 2017	Load ped file finish
+Thu May 25 11:22:39 2017	Check and concat vcf files from same sample start.
+Thu May 25 11:22:40 2017	Check and concat vcf files from same sample finish.
+Thu May 25 11:22:40 2017	Merge vcf files from different samples start.
+Thu May 25 11:22:55 2017	Merge vcf files from different samples finish.
+Thu May 25 11:22:55 2017	Fixing ploidy of sex chromosome start
+Thu May 25 11:22:55 2017	Fixing ploidy of sex chromosome finish
+
+/peterhouse/lchen/csardas/varselect_dev/scripts/vsann2.pl -v ./VarSelectAnalysisResult_20170525112231/example2_20170525112231_varselect_cleanXY.vcf.gz -p example2.ped -j 20170525112231 -d ./example2_20170525112231_varselect.db -n 16 2>./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vsann2_20170525112231.log
+Thu May 25 11:22:56 2017	Running VEP start
+Thu May 25 11:22:56 2017	Running snpEff start
+Thu May 25 11:22:57 2017	Running ANNOVAR start
+Thu May 25 11:23:59 2017	Running VEP finish
+Thu May 25 11:23:59 2017	Gemini load vcf to db start
+Indexing /peterhouse/lchen/csardas/varselect_publish/examples/example2/VarSelectAnalysisResult_20170525112231/VsResult_20170525112231_vep.vcf.gz with grabix.
+Loading 29003 variants.
+Breaking /peterhouse/lchen/csardas/varselect_publish/examples/example2/VarSelectAnalysisResult_20170525112231/VsResult_20170525112231_vep.vcf.gz into 16 chunks.
+Loading chunk 0.
+Loading chunk 1.
+Loading chunk 2.
+Loading chunk 3.
+Loading chunk 4.
+Loading chunk 5.
+Loading chunk 6.
+Loading chunk 7.
+Loading chunk 8.
+Loading chunk 9.
+Loading chunk 10.
+Loading chunk 11.
+Loading chunk 12.
+Loading chunk 13.
+Loading chunk 14.
+Loading chunk 15.
+Done loading 29003 variants in 16 chunks.
+2017-05-25 11:27:14 merging 16 chunks.
+2017-05-25 11:27:16 merging 8 chunks.
+2017-05-25 11:27:17 merging 4 chunks.
+2017-05-25 11:27:19 merging 2 chunks.
+2017-05-25 11:27:22 merged to final database....
+2017-05-25 11:27:22 moved.
+Indexing /peterhouse/lchen/csardas/varselect_publish/examples/example2/VarSelectAnalysisResult_20170525112231/work_20170525112231/snpeff_tmp.vcf.gz with grabix.
+Loading 29003 variants.
+Breaking /peterhouse/lchen/csardas/varselect_publish/examples/example2/VarSelectAnalysisResult_20170525112231/work_20170525112231/snpeff_tmp.vcf.gz into 16 chunks.
+Loading chunk 0.
+Loading chunk 1.
+Loading chunk 2.
+Loading chunk 3.
+Loading chunk 4.
+Loading chunk 5.
+Loading chunk 6.
+Loading chunk 7.
+Loading chunk 8.
+Loading chunk 9.
+Loading chunk 10.
+Loading chunk 11.
+Loading chunk 12.
+Loading chunk 13.
+Loading chunk 14.
+Loading chunk 15.
+Done loading 29003 variants in 16 chunks.
+2017-05-25 11:28:30 merging 16 chunks.
+2017-05-25 11:28:31 merging 8 chunks.
+2017-05-25 11:28:32 merging 4 chunks.
+2017-05-25 11:28:33 merging 2 chunks.
+2017-05-25 11:28:34 merged to final database....
+2017-05-25 11:28:34 moved.
+storing version, header, etc.
+storing gene-detailed
+storing gene-summary
+updating gene-table
+building indices
+Thu May 25 11:28:39 2017	Gemini load vcf to db finish
+Thu May 25 11:28:39 2017	Gemini pathways start
+Thu May 25 11:29:10 2017	3574 variants with pathways annotation
+Thu May 25 11:29:11 2017	Gemini pathways finish
+update variants SET 'AF'=? , 'BaseQRankSum'=? , 'FS'=? , 'MQRankSum'=? , 'ReadPosRankSum'=? , 'SOR'=? where variant_id = ? 
+chr22, 16052079, G, A, 1
+chr22, 51241432, G, A, 29003
+Thu May 25 11:29:30 2017	update 10000 variants	10000 : 0
+Thu May 25 11:29:31 2017	update 20000 variants	10000 : 0
+match 29003 records
+Thu May 25 11:29:33 2017	sqlite3 ./example2_20170525112231_varselect.db 'alter table variants rename to vep_variants' 2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr.tbl_rename_vep_variants_20170525112231.log 
+storing version, header, etc.
+storing gene-detailed
+storing gene-summary
+updating gene-table
+building indices
+Thu May 25 11:29:33 2017	Running snpEff finish
+Thu May 25 11:35:23 2017	Running ANNOVAR finish
+Thu May 25 11:35:23 2017	CREATE & INSERT TABLE varselect_info start
+Thu May 25 11:35:23 2017	CREATE TABLE IF NOT EXISTS varselect_info (  sn INTEGER  , vcfgz_for_analysis BLOB  , sample_list TEXT  , caller_list TEXT  , multicaller BOOLEAN )
+Thu May 25 11:35:23 2017	CREATE & INSERT TABLE varselect_info finish
+Thu May 25 11:35:24 2017	Create table annovar_variants start
+Thu May 25 11:35:24 2017	Create table annovar_variants finish
+Thu May 25 11:35:24 2017	Extract info fields from ANNOVAR finish
+update annovar_variants SET '1000G_AFR'=? , '1000G_ALL'=? , '1000G_AMR'=? , '1000G_EAS'=? , '1000G_EUR'=? , '1000G_SAS'=? , '1000g2015aug_all'=? , 'AA_alt'=? , 'AA_position'=? , 'AA_ref'=? , 'APOGEE'=? , 'APOGEE_probN'=? , 'APOGEE_probP'=? , 'Associated_disease'=? , 'CADD'=? , 'CADD_phred'=? , 'CADD_score'=? , 'CAROL'=? , 'CAROL_score'=? , 'CG46'=? , 'CHASM_FDR'=? , 'CHASM_pvalue'=? , 'CLINSIG'=? , 'CLNACC'=? , 'CLNDBN'=? , 'CLNDSDB'=? , 'CLNDSDBID'=? , 'COSMIC_frequency'=? , 'COSMIC_id'=? , 'COSMIC_samples'=? , 'COSMIC_tumor_site'=? , 'COVEC_WMV'=? , 'COVEC_WMV_score'=? , 'Codon_substitution'=? , 'Condel'=? , 'Condel_score'=? , 'EFIN_HD'=? , 'EFIN_HD_score'=? , 'EFIN_SP'=? , 'EFIN_SP_score'=? , 'ESP6500siv2_AA'=? , 'ESP6500siv2_ALL'=? , 'ESP6500siv2_EA'=? , 'Ensembl_gene_id'=? , 'Ensembl_protein_id'=? , 'Ensembl_transcript_id'=? , 'ExAC_AFR'=? , 'ExAC_ALL'=? , 'ExAC_AMR'=? , 'ExAC_EAS'=? , 'ExAC_FIN'=? , 'ExAC_NFE'=? , 'ExAC_OTH'=? , 'ExAC_SAS'=? , 'ExAC_nonpsych_AFR'=? , 'ExAC_nonpsych_ALL'=? , 'ExAC_nonpsych_AMR'=? , 'ExAC_nonpsych_EAS'=? , 'ExAC_nonpsych_FIN'=? , 'ExAC_nonpsych_NFE'=? , 'ExAC_nonpsych_OTH'=? , 'ExAC_nonpsych_SAS'=? , 'ExAC_nontcga_AFR'=? , 'ExAC_nontcga_ALL'=? , 'ExAC_nontcga_AMR'=? , 'ExAC_nontcga_EAS'=? , 'ExAC_nontcga_FIN'=? , 'ExAC_nontcga_NFE'=? , 'ExAC_nontcga_OTH'=? , 'ExAC_nontcga_SAS'=? , 'FATHMM_coding'=? , 'FATHMM_noncoding'=? , 'FatHmmW'=? , 'FatHmmW_score'=? , 'FatHmm_pred'=? , 'FatHmm_score'=? , 'GME_AF'=? , 'GME_AP'=? , 'GME_CA'=? , 'GME_Israel'=? , 'GME_NEA'=? , 'GME_NWA'=? , 'GME_SD'=? , 'GME_TP'=? , 'Gene_position'=? , 'Gene_symbol'=? , 'HRC_AC'=? , 'HRC_AF'=? , 'HRC_AN'=? , 'HRC_non1000G_AC'=? , 'HRC_non1000G_AF'=? , 'HRC_non1000G_AN'=? , 'ICGC_Id'=? , 'ICGC_Occurrence'=? , 'Kaviar_AC'=? , 'Kaviar_AF'=? , 'Kaviar_AN'=? , 'MISTIC_coevo_sites'=? , 'MISTIC_mean_MI_score'=? , 'Meta_SNP'=? , 'Meta_SNP_RI'=? , 'Meta_SNP_score'=? , 'MitImpact_id'=? , 'MutationAssessor'=? , 'MutationAssessor_score'=? , 'MutationAssessor_transf'=? , 'MutationAssessor_transf_score'=? , 'Ncbi_gene_id'=? , 'Ncbi_protein_id'=? , 'OXPHOS_complex'=? , 'PANTHER'=? , 'PANTHER_score'=? , 'PROVEAN'=? , 'PROVEAN_score'=? , 'PhD_SNP'=? , 'PhD_SNP_score'=? , 'PhastCons_100V'=? , 'PhyloP_100V'=? , 'PolyPhen2'=? , 'PolyPhen2_score'=? , 'PolyPhen2_transf'=? , 'PolyPhen2_transf_score'=? , 'PopFreqMax'=? , 'SIFT'=? , 'SIFT_score'=? , 'SIFT_transf'=? , 'SIFT_transf_score'=? , 'SNAP'=? , 'SNAP_score'=? , 'SiteVar'=? , 'Uniprot_id'=? , 'Uniprot_name'=? , 'VEST_FDR'=? , 'VEST_pvalue'=? , 'Variant_class'=? , 'Variant_status'=? , 'avsift'=? , 'avsnp147'=? , 'cg69'=? , 'cosmic70'=? , 'dbSNP_id'=? , 'dbscSNV_ADA_SCORE'=? , 'dbscSNV_RF_SCORE'=? , 'gerpxxgt2'=? , 'gwasCatalog'=? , 'nci60'=? , 'phastConsElements46way'=? , 'tfbsConsSites'=? , 'wgRna'=? where variant_id = ? 
+chr22, 16052079, G, A, 1
+chr22, 51241432, G, A, 29003
+Thu May 25 11:35:54 2017	update 10000 variants	9993 : 7
+Thu May 25 11:35:56 2017	update 20000 variants	9993 : 7
+match 29003 records
+Thu May 25 11:35:59 2017	Extract info fields from ANNOVAR finish
+Thu May 25 11:35:59 2017	Create table varselect_variants start
+Thu May 25 11:35:59 2017	sqlite3 ./example2_20170525112231_varselect.db 'CREATE TABLE varselect_variants as select variant_id,chrom,start,"end",ref,alt from vep_variants '
+Thu May 25 11:35:59 2017	sqlite3 ./example2_20170525112231_varselect.db 'CREATE INDEX vslvars_vid_idx ON varselect_variants(variant_id)'  2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_idx_create_vslvars_varselect_variants_20170525112231.log 
+Thu May 25 11:35:59 2017	Create table varselect_variants finish
+Thu May 25 11:35:59 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl  -j 20170525112231  -f ./VarSelectAnalysisResult_20170525112231/VsResult_20170525112231_pathway.vcf.gz  -a extract  -e pathway  -t text  -c pathway  -d ./example2_20170525112231_varselect.db  -b varselect_variants  2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vsl_pathway_20170525112231.log 
+update varselect_variants SET 'pathway'=? where variant_id = ? 
+chr22, 16052079, G, A, 1
+chr22, 51241432, G, A, 29003
+Thu May 25 11:36:02 2017	update 10000 variants	1043 : 8957
+Thu May 25 11:36:02 2017	update 20000 variants	1568 : 8432
+match 29003 records
+Thu May 25 11:36:03 2017	GO parsing start
+Thu May 25 11:36:03 2017	Running GO_parse.pl start
+Thu May 25 11:36:03 2017	Output header to ./VarSelectAnalysisResult_20170525112231/work_20170525112231/go_header_20170525112231.txt
+Thu May 25 11:36:03 2017	Loading mapping of Ensembl transcript to database /peterhouse/lchen/csardas/varselect_dev/db/ENST2GO.hashref start
+/peterhouse/lchen/csardas/varselect_dev/db/ENST2GO.hashref
+Thu May 25 11:36:03 2017	Loading mapping of Ensembl transcript to database /peterhouse/lchen/csardas/varselect_dev/db/ENST2GO.hashref finish
+Thu May 25 11:36:03 2017	Extracting transcript infomation from ./example2_20170525112231_varselect.db
+Thu May 25 11:36:07 2017	Running GO_parse.pl finish
+Thu May 25 11:36:08 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsl_annot.pl  -j 20170525112231  -f ./VarSelectAnalysisResult_20170525112231/VsResult_20170525112231_go.vcf.gz   -a extract  -e GO_Biological_Process,GO_Cellular_Component,GO_Molecular_Function  -t text,text,text  -c GO_Biological_Process,GO_Cellular_Component,GO_Molecular_Function  -d ./example2_20170525112231_varselect.db  -b varselect_variants  2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_vsl_GO_20170525112231.log
+update varselect_variants SET 'GO_Biological_Process'=? , 'GO_Cellular_Component'=? , 'GO_Molecular_Function'=? where variant_id = ? 
+chr22, 16052079, G, A, 1
+chr22, 51241432, G, A, 29003
+Thu May 25 11:36:13 2017	update 10000 variants	4919 : 5081
+Thu May 25 11:36:13 2017	update 20000 variants	7793 : 2207
+match 29003 records
+Thu May 25 11:36:14 2017	GO parse finish
+Thu May 25 11:36:14 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/create_view_for_varselect.pl -j 20170525112231 -d ./example2_20170525112231_varselect.db 2> ./VarSelectAnalysisResult_20170525112231/log_20170525112231/stderr_view_create_20170525112231.log
+Thu May 25 11:36:14 2017	VSannot finish

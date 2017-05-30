@@ -1,0 +1,6 @@
+Using column name 'NA12878_gatk-haplotype' for ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz:NA12878_gatk-haplotype
+Using column name 'NA12892_freebayes' for ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz:NA12892_freebayes
+Using column name 'NA12878_freebayes' for ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz:NA12878_freebayes
+Using column name 'NA12892_gatk-haplotype' for ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz:NA12892_gatk-haplotype
+Using column name 'NA12891_gatk-haplotype' for ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz:NA12891_gatk-haplotype
+Using column name 'NA12891_freebayes' for ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz:NA12891_freebayes

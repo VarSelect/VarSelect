@@ -1,0 +1,4 @@
+FILE	NA12878-gatk-chr22.vcf.gz
+LOG	./VarSelectAnalysisResult_20170524173222/log_20170524173222/drop_multiline_vcf_NA12878-gatk-chr22_20170524173222.log
+==========
+STAT	all	64942	100.00 %

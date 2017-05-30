@@ -1,0 +1,68 @@
+Wed May 24 17:32:22 2017	VS annot start
+Wed May 24 17:32:22 2017	Jobid: 20170524173222
+Wed May 24 17:32:22 2017	-n 4 -p example4.ped -k 1 -d ./example4_20170524173222_varselect.db -v example4.txt -j 20170524173222
+Wed May 24 17:32:22 2017	Load and check VCF file list start
+Wed May 24 17:32:22 2017	Clean variants with multiple line or wrong sample format values: NA12878-gatk-chr22.vcf.gz
+Wed May 24 17:32:22 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524173222 -i NA12878-gatk-chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz 
+Wed May 24 17:32:59 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz 
+Wed May 24 17:33:01 2017	Clean variants with multiple line or wrong sample format values: NA12891-gatk-chr22.vcf.gz
+Wed May 24 17:33:01 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524173222 -i NA12891-gatk-chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz 
+Wed May 24 17:33:32 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz 
+Wed May 24 17:33:34 2017	Clean variants with multiple line or wrong sample format values: NA12892-gatk-chr22.vcf.gz
+Wed May 24 17:33:34 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524173222 -i NA12892-gatk-chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz 
+Wed May 24 17:34:11 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz 
+Wed May 24 17:34:12 2017	Clean variants with multiple line or wrong sample format values: NA12878-freebayes-chr22.vcf.gz
+Wed May 24 17:34:12 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524173222 -i NA12878-freebayes-chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz 
+Wed May 24 17:34:59 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz 
+Wed May 24 17:35:00 2017	Clean variants with multiple line or wrong sample format values: NA12891-freebayes-chr22.vcf.gz
+Wed May 24 17:35:00 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524173222 -i NA12891-freebayes-chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz 
+Wed May 24 17:35:50 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz 
+Wed May 24 17:35:51 2017	Clean variants with multiple line or wrong sample format values: NA12892-freebayes-chr22.vcf.gz
+Wed May 24 17:35:51 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/drop_multiline.pl -j 20170524173222 -i NA12892-freebayes-chr22.vcf.gz |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz 
+Wed May 24 17:36:35 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz 
+Wed May 24 17:36:37 2017	Load and check VCF file list finish
+Wed May 24 17:36:37 2017	Load ped file start
+Wed May 24 17:36:37 2017	bcftools reheader --sample ./VarSelectAnalysisResult_20170524173222/work_20170524173222/newheader_NA12878_freebayes.txt ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz |bcftools view > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_freebayes_nh.vcf
+Wed May 24 17:36:40 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz.orig
+Wed May 24 17:36:40 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_freebayes_nh.vcf > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_freebayes_nh.vcf.gz
+Wed May 24 17:36:43 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_freebayes_nh.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz 
+Wed May 24 17:36:43 2017	bcftools reheader --sample ./VarSelectAnalysisResult_20170524173222/work_20170524173222/newheader_NA12878_gatk-haplotype.txt ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz |bcftools view > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_gatk-haplotype_nh.vcf
+Wed May 24 17:36:47 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz.orig
+Wed May 24 17:36:49 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_gatk-haplotype_nh.vcf > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_gatk-haplotype_nh.vcf.gz
+Wed May 24 17:36:51 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878_gatk-haplotype_nh.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz 
+Wed May 24 17:36:51 2017	bcftools reheader --sample ./VarSelectAnalysisResult_20170524173222/work_20170524173222/newheader_NA12891_freebayes.txt ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz |bcftools view > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_freebayes_nh.vcf
+Wed May 24 17:36:56 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz.orig
+Wed May 24 17:36:56 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_freebayes_nh.vcf > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_freebayes_nh.vcf.gz
+Wed May 24 17:37:00 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_freebayes_nh.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz 
+Wed May 24 17:37:00 2017	bcftools reheader --sample ./VarSelectAnalysisResult_20170524173222/work_20170524173222/newheader_NA12891_gatk-haplotype.txt ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz |bcftools view > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_gatk-haplotype_nh.vcf
+Wed May 24 17:37:03 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz.orig
+Wed May 24 17:37:03 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_gatk-haplotype_nh.vcf > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_gatk-haplotype_nh.vcf.gz
+Wed May 24 17:37:04 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891_gatk-haplotype_nh.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz 
+Wed May 24 17:37:04 2017	bcftools reheader --sample ./VarSelectAnalysisResult_20170524173222/work_20170524173222/newheader_NA12892_freebayes.txt ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz |bcftools view > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_freebayes_nh.vcf
+Wed May 24 17:37:09 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz.orig
+Wed May 24 17:37:09 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_freebayes_nh.vcf > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_freebayes_nh.vcf.gz
+Wed May 24 17:37:15 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_freebayes_nh.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz 
+Wed May 24 17:37:16 2017	bcftools reheader --sample ./VarSelectAnalysisResult_20170524173222/work_20170524173222/newheader_NA12892_gatk-haplotype.txt ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz |bcftools view > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_gatk-haplotype_nh.vcf
+Wed May 24 17:37:19 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz.orig
+Wed May 24 17:37:19 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_gatk-haplotype_nh.vcf > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_gatk-haplotype_nh.vcf.gz
+Wed May 24 17:37:24 2017	mv ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892_gatk-haplotype_nh.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz 
+Wed May 24 17:37:24 2017	Output sex infomation of Sample to ./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_sample_sex_mcaller.txt
+Wed May 24 17:37:24 2017	Load ped file finish
+Wed May 24 17:37:24 2017	Check and concat vcf files from same sample start.
+Wed May 24 17:37:24 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz 
+Wed May 24 17:37:25 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz 
+Wed May 24 17:37:28 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz 
+Wed May 24 17:37:30 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz 
+Wed May 24 17:37:32 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz 
+Wed May 24 17:37:33 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz 
+Wed May 24 17:37:34 2017	Check and concat vcf files from same sample finish.
+Wed May 24 17:37:34 2017	Merge vcf files from different samples start.
+Wed May 24 17:37:34 2017	vcf-merge -R '0/0' ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-freebayes-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12878-freebayes-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12892-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-gatk-chr22.vcf.gz ./VarSelectAnalysisResult_20170524173222/work_20170524173222/NA12891-freebayes-chr22.vcf.gz 2> ./VarSelectAnalysisResult_20170524173222/log_20170524173222/stderr_vcfmerge.log |bgzip -@ 4 -c > ./VarSelectAnalysisResult_20170524173222/work_20170524173222/example4_20170524173222_varselect_merged.vcf.gz
+Wed May 24 17:53:09 2017	Merge vcf files from different samples finish.
+Wed May 24 17:53:09 2017	Fixing ploidy of sex chromosome start
+Wed May 24 17:53:09 2017	zcat ./VarSelectAnalysisResult_20170524173222/work_20170524173222/example4_20170524173222_varselect_merged.vcf.gz |vcf-fix-ploidy --samples ./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_sample_sex_mcaller.txt >./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_cleanXY.vcf 2> ./VarSelectAnalysisResult_20170524173222/log_20170524173222/stderr_fixploidy.log
+Wed May 24 17:53:20 2017	bgzip -@ 4 -c ./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_cleanXY.vcf > ./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_cleanXY.vcf.gz 2>> ./VarSelectAnalysisResult_20170524173222/log_20170524173222/stderr_fixploidy.log
+Wed May 24 17:53:28 2017	tabix -p vcf -f ./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_cleanXY.vcf.gz 
+Wed May 24 17:53:33 2017	Fixing ploidy of sex chromosome finish
+Wed May 24 17:53:33 2017	/peterhouse/lchen/csardas/varselect_dev/scripts/vsann2.pl -v ./VarSelectAnalysisResult_20170524173222/example4_20170524173222_varselect_cleanXY.vcf.gz -p ./VarSelectAnalysisResult_20170524173222/work_20170524173222/example4_mcaller.ped -j 20170524173222 -d ./example4_20170524173222_varselect.db -n 4 2>./VarSelectAnalysisResult_20170524173222/log_20170524173222/stderr_vsann2_20170524173222.log
+Wed May 24 20:25:00 2017	VSannot finish

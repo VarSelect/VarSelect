@@ -1,0 +1,3 @@
+blood,blood-gatk-chr22.vcf.gz
+ccRCC,ccRCC-gatk-chr22.vcf.gz
+meta-lung,meta-lung-gatk-chr22.vcf.gz
