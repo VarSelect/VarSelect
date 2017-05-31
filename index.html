@@ -1,5 +1,5 @@
 <!doctype html>
-<html><head><title>VarSelect Manual (20170525)</title><meta charset="UTF-8"><link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic|Roboto:400,700,700italic,400italic" type="text/css" rel="stylesheet"><style>/*
+<html><head><title>VarSelect Manual (20170525)</title><meta charset="UTF-8"><link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic|Roboto:400,700,700italic,400italic"><style>/*
  * Copyright 2014 Quip
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -319,25 +319,27 @@ The following tools are required for running VarSelect, please follow the instru
 
  <br/>
 
-<b><b>vcftools</b></b><a href="https://vcftools.github.io/"><code>vcftools</code></a>[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at <a href="https://vcftools.github.io/index.html"><code>https://vcftools.github.io/index.html</code></a>. Please follow the instruction to install vcftools at <a href="https://vcftools.github.io/examples.html"><code>https://vcftools.github.io/examples.html</code></a>.<br><br><b>bcftools, bgzip, tabix</b><br> bcftools, bgzip and tabix are tools to compress, index and manipulate VCF files. bcftools is available at <a href="http://www.htslib.org/download/"><code>http://www.htslib.org/download/</code></a>, and includes the bgzip and the tabix tools in the software release.<br/>
+<b><b>vcftools</b></b><br/>
+
+<a href="https://vcftools.github.io/"><code>vcftools</code></a>[9] is a set of tools for manipulating genetic variants in the VCF-formatted files, and is available at <a href="https://vcftools.github.io/index.html"><code>https://vcftools.github.io/index.html</code></a>. Please follow the instruction to install vcftools at <a href="https://vcftools.github.io/examples.html"><code>https://vcftools.github.io/examples.html</code></a>.<br><br><b>bcftools, bgzip, tabix</b><br> bcftools, bgzip and tabix are tools to compress, index and manipulate VCF files. bcftools is available at <a href="http://www.htslib.org/download/"><code>http://www.htslib.org/download/</code></a>, and includes the bgzip and the tabix tools in the software release.<br/>
 
 <h2 id='HZJACAYfkDS'><b>Download VarSelect</b></h2>
 
-The latest version of VarSelect is available a<i>t</i> <a href="https://github.com/VarSelect/">https://github.com/VarSelect/</a>  <i><i>.</i></i><br/>
+The latest version of VarSelect is available a<i>t</i>  <a href="https://github.com/VarSelect/">https://github.com/VarSelect/</a>  <i><i>.</i></i><br/>
 
-<h3 id='HZJACA2f7gw'><b>Install VarSelect</b></h3>
+<h2 id='HZJACA2f7gw'><b>Install VarSelect</b></h2>
 
 Please make sure that you have downloaded all the required packages and resources needed by VarSelect. When you are all set, please run the following command to decompress the VarSelect files.<br/>
 
-        <i><i>tar zxvf VarSelect-latest.tar.gz</i></i><br/>
+<pre id='HZJACAlwcQZ'>        <i><i>tar zxvf VarSelect-latest.tar.gz</i></i></pre>
 
 After extracting the package, run the VarSelect installation script<br/>
 
-        <i>/path/to/your/VarSelect/install_VarSelect.pl</i><br/>
+<pre id='HZJACAPze2x'>        <i>/path/to/your/VarSelect/install_VarSelect.pl</i></pre>
 
 Add the VarSelect path to your system's $PATH settings<br/>
 
-        <i><i>export PATH=/path/to/your/VarSelect/dir:$PATH</i></i><br/>
+<pre id='HZJACA7ZIqe'>        <i><i>export PATH=/path/to/your/VarSelect/dir:$PATH</i></i></pre>
 
  <br/>
 
@@ -421,7 +423,7 @@ A first full run of original analysis creates a VarSelect database, which is req
 
 After re-analysis, a new analysis directory will be created named with a new analysis id. The results and logs will also be stored in new directory. Filtered variants will be assigned new tag in_analysis_{new analysis id} in the VarSelect database.<br/>
 
-<b><b>Comparative analysis: compare results from any two original analyses </b></b><br/>
+<h2 id='HZJACAKTNXZ'><b><b>Comparative analysis: compare results from any two original analyses </b></b></h2>
 
 The results from different original analyses can be compared for specific purposes and is termed ‘comparative analysis’. Comparison between any two original analyses is specified by the options ‘-a’ and ‘-b’ as follows. <br/>
 
@@ -503,7 +505,7 @@ The following examples are some common scenario.<br/>
 
 <br/>
 
-<h3 id='HZJACAI5rli'><b><b>Example 1 - samples of a family study</b></b></h3>
+<h2 id='HZJACAI5rli'><b><b>Example 1 - samples of a family study</b></b></h2>
 
 In this example, the variants on the chromosome 22 of a family trio, including NA12878, NA12891, NA12892 are used to demonstrate for family-based analysis.<br> All required files are stored in the directory ‘varselect/examples/example1/‘. <br/>
 
@@ -539,7 +541,7 @@ The following command filters the variants of compound heterozygosity inheritanc
 
  <br/>
 
-<h3 id='HZJACAA6Fli'><b>Example 2 - paired case/control samples</b></h3>
+<h2 id='HZJACAA6Fli'><b>Example 2 - paired case/control samples</b></h2>
 
 In this case, we use the variants of chromosome 22 of three samples, including blood, primary tumor ccRCC (clear cell Renal Cell Carcinoma), and a metastasis lung cancer available at <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP063388"><code>https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP063388</code></a>.<br> All files are stored in subdirectory examples/example2/<br/>
 
@@ -565,7 +567,7 @@ When the analysis is finished, the file ‘example2_20170525112231_varselect.db�
 
 <br/>
 
-<h3 id='HZJACAC8Toc'><b><b>Example 3 – Re-analysis and comparison (comparative analysis)</b></b></h3>
+<h2 id='HZJACAC8Toc'><b><b>Example 3 – Re-analysis and comparison (comparative analysis)</b></b></h2>
 
 Multiple original analysis (re-analysis) can be performed for various study purposes. Comparison between any two original analyses provides the flexibility of hierarchical comparison, namely comparative analysis. User can repeat analysis by marking labels written in the ped file. For example, in the case of ccRCC, you can filter the common <i>de novo</i> mutations presented in both ccRCC and the metastatic lung samples by performing ‘blood vs. ccRCC’ and ‘blood vs. meta-lung’ analyses. The third sample in the ped file marked with '#' will be excluded in this analysis.Firstly, replicate the ped file in the sample 2 as follows.<br/>
 
@@ -629,7 +631,7 @@ If you want to select the novel mutations present only in the metastasis tumor, 
 
 <br/>
 
-<h3 id='HZJACAKggXg'><b><b>Example 4 – comparison of multiple variants callers</b></b></h3>
+<h2 id='HZJACAKggXg'><b><b>Example 4 – comparison of multiple variants callers</b></b></h2>
 
 Union and/or intersection of variant calls from different variants callers could be of interests. This example demonstrates manipulation of results of two popular variant callers: ‘GATK-HaplotypeCaller’ and ‘freebayes’.<br/>
 
