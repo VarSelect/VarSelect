@@ -1,5 +1,6 @@
 # VarSelect Manual (20170525)
 
+<img src="./fig1.jpg" width="800px">
 ## **Before you start**
 
 The following tools are required for running VarSelect, please follow the instruction and install all the following tools for full benefits. Please note that the current version of VarSelect supports only the human genome reference hg19/GRCh37. The support for GRCh38 will be available shortly. 
